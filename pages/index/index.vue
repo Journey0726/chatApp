@@ -194,7 +194,6 @@
 	.status_bar {
       height: var(--status-bar-height);
       width: 100%;
-	  background-color: red;
   }
 	.content{
 		 height: 100vh;

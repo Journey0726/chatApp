@@ -1,11 +1,11 @@
 <template>
 	<view class="content">
 		<view class="status_bar">
-		          <!-- 这里是状态栏 -->
-		      </view>
+			<!-- 这里是状态栏 -->
+		</view>
 		<view class="topBar">
 			<view class="topBarRight">
-				<view class="signUp">
+				<view class="signUp" @tap="navToSignUp">
 					<text>注册</text>
 				</view>
 			</view>
@@ -19,9 +19,12 @@
 				<text>欢迎您的使用</text>
 			</view>
 			<view class="input">
-				<input type="text" value=""  placeholder="用户名/邮箱" placeholder-style="color:#999; font-size:28rpx;" />
-				<input type="password" value=""  placeholder="密码" placeholder-style="color:#999; font-size:28rpx;"/>
-				<button type="primary">登录</button>
+				<input type="text" v-model="username" placeholder="用户名/邮箱" placeholder-style="color:#999; font-size:28rpx;" />
+				<input type="password" v-model="password"  placeholder="密码" placeholder-style="color:#999; font-size:28rpx;" />
+				<view class="tips">
+					{{tips}}
+				</view>
+				<button type="primary" @tap="submit">登录</button>
 			</view>
 		</view>
 	</view>
@@ -31,20 +34,30 @@
 	export default {
 		data() {
 			return {
-				
+				tips: '用户名错误',
+				username:'',
+				password:''
 			}
 		},
 		methods: {
-			
+			navToSignUp(){
+				uni.navigateBack({
+					delta:1
+				})
+			},
+			submit(){
+				if(this.username.length||this.password.length){
+					this.tips = '用户名或密码不能为空'
+				}
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
 	.status_bar {
-	    height: var(--status-bar-height);
-	    width: 100%;
-		  background-color: red;
+		height: var(--status-bar-height);
+		width: 100%;
 	}
 	.topBar {
 		width: 100%;
@@ -56,22 +69,25 @@
 		position: fixed;
 		top: 0px;
 		left: 0;
-		
+
 		background-color: $uni-bg-color;
 		box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+
 		.topBarRight {
 			float: right;
 			line-height: 98rpx;
-			margin-right:32rpx;
-			text{
+			margin-right: 32rpx;
+			text {
 				font-size: $uni-font-size-lg;
 				color: $uni-text-color;
 			}
 		}
 	}
-	.img{
+
+	.img {
 		margin-bottom: 50rpx;
-		image{
+
+		image {
 			width: 70rpx;
 			height: 70rpx;
 			margin-top: 120rpx;
@@ -80,33 +96,47 @@
 			transform: translateX(-50%);
 		}
 	}
-	.login{
+
+	.login {
 		margin-left: 50rpx;
 		margin-right: 50rpx;
-		.text{
+
+		.text {
 			margin-bottom: 50rpx;
-			text:nth-child(1){
-				color:  $uni-text-color-grey;
+
+			text:nth-child(1) {
+				color: $uni-text-color-grey;
 				font-weight: bold;
 				font-size: 40rpx;
 				display: block;
 			}
-			text:nth-child(2){
+
+			text:nth-child(2) {
 				color: $uni-text-color-grey;
-				font-size:$uni-font-size-base;
+				font-size: $uni-font-size-base;
 			}
 		}
-		.input{
+
+		.input {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			
-				input{
-					margin-bottom:50rpx;
-					padding-bottom: 20rpx;
-					border-bottom: 1px solid #007aff;
-				}
-			
+
+			input {
+				margin-bottom: 50rpx;
+				padding-bottom: 20rpx;
+				border-bottom: 1px solid #007aff;
+			}
+			.tips{
+				float: left;
+				font-size: $uni-font-size-lg;
+				line-height: 36rpx;
+				color:$uni-color-warning;
+			}
+		}
+
+		button {
+			margin-top: 20rpx;
 		}
 	}
 </style>

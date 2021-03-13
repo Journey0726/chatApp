@@ -75,62 +75,99 @@
   font-size: 32rpx;
   color: #272833;
 }
-.topBarRight {
-  float: right;
-}
-.img {
-  margin-bottom: 50rpx;
-}
-.img image {
-  width: 70rpx;
-  height: 70rpx;
-  margin-top: 120rpx;
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-.login {
-  margin-left: 50rpx;
-  margin-right: 50rpx;
-}
-.login .text {
-  margin-bottom: 50rpx;
-}
-.login .text text:nth-child(1) {
-  color: rgba(39, 40, 50, 0.6);
-  font-weight: bold;
-  font-size: 40rpx;
-  display: block;
-}
-.login .text text:nth-child(2) {
-  color: rgba(39, 40, 50, 0.6);
-  font-size: 28rpx;
-}
-.login .input {
+.topBar {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
 }
-.login .input input {
-  margin-bottom: 50rpx;
-  padding-bottom: 20rpx;
+.search {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  float: left;
+  margin-top: 25rpx;
+  margin-bottom: 20rpx;
+  margin-left: 30rpx;
+  position: relative;
+  background-color: #f3f4f6;
+}
+.search image {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  top: 8rpx;
+  margin-right: 25rpx;
+}
+.search input {
+  width: 550rpx;
+}
+.main {
+  margin-top: 108rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.main .user {
+  margin-top: 55rpx;
+  padding-bottom: 55rpx;
   border-bottom: 1px solid #007aff;
 }
-.login .input .tips {
-  float: left;
-  font-size: 32rpx;
-  line-height: 36rpx;
-  color: #ff5d5b;
+.main .user .text {
+  font-size: 48rpx;
 }
-.login button {
-  margin-top: 20rpx;
+.main .user .list .listItem {
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.main .user .list .listItem image {
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 18rpx;
+  margin-right: 48rpx;
+}
+.main .user .list .listItem .names {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.main .user .list .listItem .names .name {
+  font-size: 40rpx;
+  color: #555555;
+}
+.main .user .list .listItem .names .email {
+  font-size: 14rpx;
+  margin-top: 15rpx;
+}
+.main .user .list .listItem .send {
+  float: right;
+  margin-top: 12rpx;
+  height: 55rpx;
+  width: 120rpx;
+  font-size: 18rpx;
+  text-align: center;
+  line-height: 55rpx;
+  border-radius: 28rpx;
+  color: #fff;
+  background-color: #007aff;
+  border: 1px solid #007aff;
+}
+.main .user .list .listItem .add {
+  float: right;
+  margin-top: 12rpx;
+  height: 55rpx;
+  width: 120rpx;
+  font-size: 18rpx;
+  text-align: center;
+  line-height: 55rpx;
+  border-radius: 28rpx;
+  color: #ff5500;
+  background-color: #ffff7f;
+  border: 1px solid #007aff;
+}
+.main .user .list .listItem:active {
+  background-color: #f3f4f6;
 }
 

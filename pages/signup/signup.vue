@@ -4,10 +4,10 @@
 			<!-- 这里是状态栏 -->
 		</view>
 		<view class="topBar">
-			<view class="topBarLeft">
-				<image  @tap="navToLogin" src="../../static/topbar/back.png" mode=""></image>
+			<view class="topBarleft">
+				<image @tap="navToLogin" src="../../static/topbar/back.png" mode=""></image>
 			</view>
-			
+
 		</view>
 		<view class="img">
 			<image src="../../static/topbar/sign.png" mode=""></image>
@@ -29,7 +29,7 @@
 					<text v-else>邮箱无效</text>
 				</view>
 				<view class="sign password">
-					<input :type="type"  @blur="getPwd"  placeholder="请输入密码" placeholder-style="color:#999; font-size:28rpx;" />
+					<input :type="type" @blur="getPwd" placeholder="请输入密码" placeholder-style="color:#999; font-size:28rpx;" />
 					<image @tap="changeStatus" class="see" :src="src" mode=""></image>
 
 				</view>
@@ -45,9 +45,9 @@
 	export default {
 		data() {
 			return {
-				username:'',
-				email:'',
-				password:'',
+				username: '',
+				email: '',
+				password: '',
 				type: 'password',
 				isUser: true,
 				isEmail: true,
@@ -57,24 +57,24 @@
 				src: '../../static/topbar/nosee.png'
 			}
 		},
-		computed:{
-			isDisable(){
-				if(this.username&&this.email&&this.password&&this.isEmail&&this.isUser)
-				return true
+		computed: {
+			isDisable() {
+				if (this.username && this.email && this.password && this.isEmail && this.isUser)
+					return true
 				else return false
 			}
 		},
 		methods: {
-			navToLogin(){
+			navToLogin() {
 				uni.navigateTo({
-					url:'../login/login'
+					url: '../login/login'
 				})
 			},
-			inspect(e){
+			inspect(e) {
 				let eMailRegExp = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
-				if(this.email)
-				this.isEmail = eMailRegExp.test(this.email)
-				
+				if (this.email)
+					this.isEmail = eMailRegExp.test(this.email)
+
 			},
 			changeStatus() {
 				if (this.isPwd) {
@@ -87,49 +87,18 @@
 					this.src = this.noseeSrc
 				}
 			},
-			getPwd(e){
+			getPwd(e) {
 				this.password = e.target.value
 			},
-			signUp(){
-				
+			signUp() {
+
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
-	.status_bar {
-		height: var(--status-bar-height);
-		width: 100%;
-	}
-
-	.topBar {
-		width: 100%;
-		height: 98rpx;
-		z-index: 9999;
-		padding-top: var(--status-bar-height);
-		padding-top: var(--status-bar-height);
-		margin-bottom: var(--status-bar-height);
-		position: fixed;
-		top: 0px;
-		left: 0;
-		display: flex;
-		background-color: $uni-bg-color;
-		box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-
-		.topBarLeft {
-			padding-top: 20rpx;
-			margin-left: 20rpx;
-			flex: 1;
-
-			image {
-
-				width: 50rpx;
-				height: 50rpx;
-				border-radius: 16rpx;
-			}
-		}
-	}
+	@import '../../common/css/topBar.scss';
 
 	.img {
 		margin-bottom: 50rpx;
@@ -150,12 +119,14 @@
 
 		.text {
 			margin-bottom: 50rpx;
+
 			text:nth-child(1) {
 				color: $uni-text-color-grey;
 				font-weight: bold;
 				font-size: 40rpx;
 				display: block;
 			}
+
 			text:nth-child(2) {
 				color: $uni-text-color-grey;
 				font-size: $uni-font-size-base;
@@ -166,19 +137,23 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+
 			.sign {
 				display: flex;
 				border-bottom: 1px solid #007aff;
 				margin-bottom: 30rpx;
 				padding-bottom: 15rpx;
+
 				text {
 					font-size: $uni-font-size-base;
 					line-height: 60rpx;
 					color: $uni-color-warning;
 				}
+
 				input {
 					flex: 1;
 				}
+
 				image {
 					width: 60rpx;
 					height: 60rpx;

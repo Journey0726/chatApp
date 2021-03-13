@@ -41,13 +41,18 @@
 		},
 		methods: {
 			navToSignUp(){
-				uni.navigateBack({
-					delta:1
+				uni.navigateTo({
+					url:'../signup/signup'
 				})
 			},
 			submit(){
 				if(this.username.length||this.password.length){
 					this.tips = '用户名或密码不能为空'
+				}
+				else{
+					uni.navigateTo({
+						url:'../index/index'
+					})
 				}
 			}
 		}
@@ -55,35 +60,10 @@
 </script>
 
 <style lang="scss">
-	.status_bar {
-		height: var(--status-bar-height);
-		width: 100%;
+	@import '../../common/css/topBar.scss';
+	.topBarRight{
+		float: right;
 	}
-	.topBar {
-		width: 100%;
-		height: 98rpx;
-		z-index: 9999;
-		padding-top: var(--status-bar-height);
-		padding-top: var(--status-bar-height);
-		margin-bottom: var(--status-bar-height);
-		position: fixed;
-		top: 0px;
-		left: 0;
-
-		background-color: $uni-bg-color;
-		box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-
-		.topBarRight {
-			float: right;
-			line-height: 98rpx;
-			margin-right: 32rpx;
-			text {
-				font-size: $uni-font-size-lg;
-				color: $uni-text-color;
-			}
-		}
-	}
-
 	.img {
 		margin-bottom: 50rpx;
 

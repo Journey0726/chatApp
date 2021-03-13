@@ -6,17 +6,17 @@
 		<view class="topBar">
 
 			<view class="topBarleft">
-				<image src="../../static/topbar/user.png" mode=""></image>
+				<image src="../../static/topbar/user.png" ></image>
 			</view>
 			<view class="topBarCenter">
-				<image class="img" src="../../static/topbar/sign.png" mode=""></image>
+				<image class="img" src="../../static/topbar/sign.png" ></image>
 			</view>
 			<view class="topBarRight">
-				<view class="search">
-					<image src="../../static/topbar/search.png" mode=""></image>
+				<view class="search" @tap="navTosearch">
+					<image src="../../static/topbar/search.png" ></image>
 				</view>
 				<view class="add">
-					<image src="../../static/topbar/add.png" mode=""></image>
+					<image src="../../static/topbar/add.png"></image>
 				</view>
 			</view>
 		</view>
@@ -45,7 +45,7 @@
 
 				<view class="friendList" v-for="item in friendList" :key="item.id">
 					<view class="friendList-L">
-						<text class="tip">{{item.tip}}</text>
+						<text class="tip" v-if="item.tip">{{item.tip}}</text>
 						<image :src="item.img"></image>
 					</view>
 					<view class="friendList-R">
@@ -71,113 +71,15 @@
 	import {
 		getDate
 	} from '../../common/js/utils.js'
+	 import datas from '../../common/js/datas.js'
 	export default {
 		data() {
 			return {
-				friendList: [{
-					id: 1,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					tip: 2,
-					time: new Date(),
-					info: '我是闪电'
-				}, {
-					id: 2,
-					img: '../../static/friends/friend.png',
-					name: '你好吗',
-					tip: 2,
-					time: new Date(),
-					info: '无情'
-				}, {
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},{
-					id: 3,
-					img: '../../static/friends/yasuo.jpg',
-					name: '亚索',
-					time: new Date(),
-					tip: 58,
-					info: '死亡如风'
-				},
-				 ]
+				friendList: ''
 			}
 		},
 		onLoad() {
-
+			this.firends()
 		},
 		filters: {
 			showDate(val) {
@@ -185,70 +87,24 @@
 			}
 		},
 		methods: {
-
+			navTosearch(){
+				uni.navigateTo({
+					url:'../search/search'
+				})
+			},
+			firends(){
+				this.friendList = datas.firends()
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
-	.status_bar {
-      height: var(--status-bar-height);
-      width: 100%;
-  }
-	.content{
-		 height: 100vh;
-		padding-bottom: 55px;
-	}
-	.topBar {
-		width: 100%;
-		height: 98rpx;
-		z-index: 9999;
-		padding-top: var(--status-bar-height);
-		padding-top: var(--status-bar-height);
-		margin-bottom: var(--status-bar-height);
-		position: fixed;
+	@import '../../common/css/topBar.scss';
+	.topBar{
 		display: flex;
 		justify-content: space-between;
-		top: 0px;
-		left: 0;
-		
-		background-color: $uni-bg-color;
-		box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-
-		.topBarleft {
-			padding-top: 10rpx;
-			margin-left: 10rpx;
-
-			image {
-				
-				width: 68rpx;
-				height: 68rpx;
-				border-radius: 16rpx;
-			}
-		}
-
-		.topBarCenter {
-			padding-top: 10rpx;
-			.img {
-				margin-top: 10rpx;
-				width: 48rpx;
-				height: 42rpx;
-			}
-		}
-
-		.topBarRight {
-			display: flex;
-			
-			image {
-				width: 42rpx;
-				height: 42rpx;
-				margin-right: 20rpx;
-				margin-top: 20rpx;
-			}
-
-		}
 	}
-
 	.body {
 		margin-top: 100rpx;
 		padding-bottom: 50rpx;
@@ -288,8 +144,9 @@
 						border-radius: 18rpx;
 						height: 36rpx;
 						line-height: 36rpx;
+						padding: 0 6rpx;
 						text-align: center;
-						min-width: 36rpx;
+						min-width: 24rpx;
 						border: 1px solid;
 						position: absolute;
 						right: -10rpx;

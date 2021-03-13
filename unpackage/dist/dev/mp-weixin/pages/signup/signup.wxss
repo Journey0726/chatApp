@@ -38,23 +38,42 @@
   position: fixed;
   top: 0px;
   left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
   background-color: #ffffff;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 }
-.topBar .topBarLeft {
+.topBar .topBarleft {
   padding-top: 20rpx;
-  margin-left: 20rpx;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
+  margin-left: 10rpx;
 }
-.topBar .topBarLeft image {
+.topBar .topBarleft image {
   width: 50rpx;
   height: 50rpx;
   border-radius: 16rpx;
+}
+.topBar .topBarCenter {
+  padding-top: 10rpx;
+}
+.topBar .topBarCenter .img {
+  margin-top: 10rpx;
+  width: 48rpx;
+  height: 42rpx;
+}
+.topBar .topBarRight {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  line-height: 98rpx;
+  margin-right: 12rpx;
+}
+.topBar .topBarRight image {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 10rpx;
+  margin-top: 20rpx;
+}
+.topBar .topBarRight text {
+  font-size: 32rpx;
+  color: #272833;
 }
 .img {
   margin-bottom: 50rpx;

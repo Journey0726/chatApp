@@ -1,5 +1,8 @@
 <template>
 	<view class="content">
+		<view class="status_bar">
+		          <!-- 这里是状态栏 -->
+		      </view>
 		<view class="topBar">
 
 			<view class="topBarleft">
@@ -188,13 +191,16 @@
 </script>
 
 <style lang="scss">
+	.status_bar {
+      height: var(--status-bar-height);
+      width: 100%;
+	  background-color: red;
+  }
 	.content{
-		padding-top: var(--status-bar-height);
 		 height: 100vh;
 		padding-bottom: 55px;
 	}
 	.topBar {
-		border: 1px solid;
 		width: 100%;
 		height: 98rpx;
 		z-index: 9999;
@@ -203,6 +209,7 @@
 		margin-bottom: var(--status-bar-height);
 		position: fixed;
 		display: flex;
+		justify-content: space-between;
 		top: 0px;
 		left: 0;
 		
@@ -210,13 +217,11 @@
 		box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 
 		.topBarleft {
-			
-			float: left;
-			width: 350rpx;
 			padding-top: 10rpx;
 			margin-left: 10rpx;
 
 			image {
+				
 				width: 68rpx;
 				height: 68rpx;
 				border-radius: 16rpx;
@@ -224,7 +229,6 @@
 		}
 
 		.topBarCenter {
-			flex: 1;
 			padding-top: 10rpx;
 			.img {
 				margin-top: 10rpx;
@@ -240,7 +244,7 @@
 				width: 42rpx;
 				height: 42rpx;
 				margin-right: 20rpx;
-				margin-top: 10rpx;
+				margin-top: 20rpx;
 			}
 
 		}

@@ -33,7 +33,6 @@
   height: 98rpx;
   z-index: 9999;
   padding-top: 25px;
-  padding-top: 25px;
   margin-bottom: 25px;
   position: fixed;
   top: 0px;
@@ -43,7 +42,7 @@
 }
 .topBar .topBarleft {
   padding-top: 20rpx;
-  margin-left: 10rpx;
+  margin-left: 25rpx;
 }
 .topBar .topBarleft image {
   width: 50rpx;
@@ -91,7 +90,7 @@
   position: relative;
 }
 .main .image {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   margin: 200rpx auto;
@@ -100,8 +99,26 @@
   border-radius: 18rpx;
   border: 2px solid #fff;
 }
-.main .sex {
-  position: absolute;
+.main .addImage {
+  position: fixed;
+  left: 100rpx;
+  top: 150rpx;
+  width: 300rpx;
+  height: 300rpx;
+  box-shadow: 5rpx 10rpx 30rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.main .Users .footer {
+  position: fixed;
+  width: 90%;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  margin-bottom: 25px;
+}
+.main .Users .sex {
+  position: fixed;
   background-color: rgba(0, 122, 200, 0.5);
   width: 80rpx;
   height: 80rpx;
@@ -111,11 +128,13 @@
   margin-top: 540rpx;
   left: 65%;
 }
-.main .info {
-  position: absolute;
+.main .Users .info {
+  position: fixed;
   top: 700rpx;
   width: 500rpx;
-  margin-left: 125rpx;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -124,30 +143,23 @@
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
+  padding-bottom: 25px;
 }
-.main .info .name {
+.main .Users .info .name {
   font-size: 42rpx;
   font-weight: bold;
   color: #272832;
   line-height: 74rpx;
 }
-.main .info .inck {
+.main .Users .info .inck {
   font-size: 30rpx;
   line-height: 56rpx;
   color: #272832;
 }
-.main .info .intro {
+.main .Users .info .intro {
   font-size: 24rpx;
   color: #272832;
   line-height: 48rpx;
-}
-.footer {
-  position: absolute;
-  bottom: 50rpx;
-  width: 90%;
-  right: 50%;
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
 }
 .bg {
   position: relative;
@@ -164,7 +176,45 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
   z-index: -1;
+}
+.addFriend {
+  position: fixed;
+  bottom: 10rpx;
+  width: 90%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.addFriend .FriendInfo .name {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #272832;
+  line-height: 74rpx;
+  margin-left: 170rpx;
+  margin-bottom: 20rpx;
+}
+.addFriend .FriendInfo textarea {
+  border: 1px solid #fff;
+  border-bottom: none;
+  width: 100%;
+  height: 500rpx;
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+  line-height: 55rpx;
+  background-color: rgba(0, 122, 255, 0.1);
+  margin-bottom: 100rpx;
+}
+.addFriend .FriendInfo .btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.addFriend .FriendInfo .btn .cancel {
+  width: 20%;
+}
+.addFriend .FriendInfo .btn .send {
+  width: 70%;
 }
 

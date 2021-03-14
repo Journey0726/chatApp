@@ -5,9 +5,9 @@
 		      </view>
 		<view class="topBar">
 
-			<view class="topBarleft">
+			<navigator url="../userHome/userHome?id=aaa" hover-class="none" class="topBarleft">
 				<image src="../../static/topbar/user.png" ></image>
-			</view>
+			</navigator>
 			<view class="topBarCenter">
 				<image class="img" src="../../static/topbar/sign.png" ></image>
 			</view>

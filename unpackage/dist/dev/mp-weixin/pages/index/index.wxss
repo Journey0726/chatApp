@@ -33,7 +33,6 @@
   height: 98rpx;
   z-index: 9999;
   padding-top: 25px;
-  padding-top: 25px;
   margin-bottom: 25px;
   position: fixed;
   top: 0px;
@@ -43,7 +42,7 @@
 }
 .topBar .topBarleft {
   padding-top: 20rpx;
-  margin-left: 10rpx;
+  margin-left: 25rpx;
 }
 .topBar .topBarleft image {
   width: 50rpx;

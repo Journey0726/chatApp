@@ -162,6 +162,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -169,15 +183,33 @@ var _default =
       user: {
         name: '亚索',
         inck: "疾风剑豪",
-        intro: '就有点离谱就有点离谱就有点离谱就有点离谱就有点离谱就有点离谱就有点离谱就有点离谱' } };
+        intro: '就有点离谱就有点离谱就有点离谱就有点离谱就有点离谱就有点离谱就有点离谱就有点离谱' },
 
+      isAdd: false,
+      myName: '永恩',
+      height: '' };
 
   },
+  onReady: function onReady() {
+    this.getElementHeight();
+    console.log(this.height);
+  },
+
   methods: {
     navToindex: function navToindex() {
-      uni.navigateTo({
-        url: '../index/index' });
+      uni.navigateBack({
+        delta: 1 });
 
+    },
+    changeStatus: function changeStatus() {
+      this.isAdd = !this.isAdd;
+    },
+    getElementHeight: function getElementHeight() {var _this = this;
+      var query = uni.createSelectorQuery().in(this);
+      query.select('.white').boundingClientRect(function (data) {
+        console.log(data);
+        _this.height = data.height - 100;
+      }).exec();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

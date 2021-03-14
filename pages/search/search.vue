@@ -19,7 +19,9 @@
 				</view>
 				<view class="list">
 					<view class="listItem" v-for="item in matchedList" :key='item.id'> 
-						<image :src="item.img"></image>
+						<navigator url="../userHome/userHome" hover-class="none">
+							<image :src="item.img"></image>
+						</navigator>
 						<view class="names">
 							<view class="name" v-html="item.name"></view>
 							<view class="email">ddddd.@qq.com</view>

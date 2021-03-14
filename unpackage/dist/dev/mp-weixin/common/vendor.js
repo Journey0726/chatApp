@@ -8166,6 +8166,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       friend: 5 }];
 
 
+    return isFriends;
   } };exports.default = _default;
 
 /***/ })

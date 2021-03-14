@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/login/login",
     "pages/signup/signup",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/userHome/userHome"
   ],
   "subPackages": [],
   "window": {
@@ -13,5 +14,5 @@
     "backgroundColor": "#F8F8F8"
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap98.json"
+  "sitemapLocation": "sitemap19.json"
 }

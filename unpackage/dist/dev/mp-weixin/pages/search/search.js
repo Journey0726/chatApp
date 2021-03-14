@@ -97,6 +97,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.matchedList, function(item, __i0__) {
+    var $orig = _vm.__get_orig(item)
+
+    var m0 = _vm.select(item)
+    return {
+      $orig: $orig,
+      m0: m0
+    }
+  })
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -261,7 +279,8 @@ var _datas = _interopRequireDefault(__webpack_require__(/*! ../../common/js/data
 //
 //
 //
-var _default = { data: function data() {return { searchInfo: '', matchedList: [] };}, methods: { cancel: function cancel() {uni.navigateTo({ url: '../index/index' });}, search: function search() {var _this = this;this.matchedList = [];var arr = _datas.default.firends();if (this.searchInfo.length !== 0) {arr.forEach(function (item) {_this.isFriend(item);if (JSON.stringify(item.name).search(_this.searchInfo) !== -1) {item.name = item.name.replace(_this.searchInfo, "<span style='color:#4AAAFF;'>" + _this.searchInfo + "</span>");_this.matchedList.push(item);}});}}, isFriend: function isFriend(event) {var tip = 0;var friendsArr = _datas.default.isFriends();friendsArr.forEach(function (item) {if (item.friend === event.id) tip = 1;event.tip = tip;console.log(event.tip);});} } };exports.default = _default;
+var _default = { data: function data() {return { searchInfo: '', matchedList: [] };}, methods: { cancel: function cancel() {uni.navigateTo({ url: '../index/index' });}, select: function select(item) {// return this.matchedList.flag===0?'加好友':'发消息'
+      if (item.flag === 0) return '加好友';else return '发消息';}, search: function search() {var _this = this;this.matchedList = [];var arr = _datas.default.firends();if (this.searchInfo.length !== 0) {arr.forEach(function (item) {if (JSON.stringify(item.name).search(_this.searchInfo) !== -1) {item.name = item.name.replace(_this.searchInfo, "<span style='color:#4AAAFF;'>" + _this.searchInfo + "</span>");_this.isFriend(item);_this.matchedList.push(item);}});}}, isFriend: function isFriend(event) {var flag = 0;var friendsArr = _datas.default.isFriends();friendsArr.forEach(function (item) {if (item.friend === event.id) flag = 1;});event.flag = flag;} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

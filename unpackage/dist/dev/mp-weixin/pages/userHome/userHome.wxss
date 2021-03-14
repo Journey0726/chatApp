@@ -75,62 +75,96 @@
   font-size: 32rpx;
   color: #272833;
 }
-.topBarRight {
-  float: right;
-}
-.img {
-  margin-bottom: 50rpx;
-}
-.img image {
-  width: 70rpx;
-  height: 70rpx;
-  margin-top: 120rpx;
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-.login {
-  margin-left: 50rpx;
-  margin-right: 50rpx;
-}
-.login .text {
-  margin-bottom: 50rpx;
-}
-.login .text text:nth-child(1) {
-  color: rgba(39, 40, 50, 0.6);
-  font-weight: bold;
-  font-size: 40rpx;
-  display: block;
-}
-.login .text text:nth-child(2) {
-  color: rgba(39, 40, 50, 0.6);
-  font-size: 28rpx;
-}
-.login .input {
+.topBar {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0px 0 0 rgba(0, 0, 0, 0.1);
+}
+.topBar .topBarleft {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.main {
+  position: relative;
+}
+.main .image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 200rpx auto;
+  width: 450rpx;
+  height: 450rpx;
+  border-radius: 18rpx;
+  border: 2px solid #fff;
+}
+.main .sex {
+  position: absolute;
+  background-color: rgba(0, 122, 200, 0.5);
+  width: 80rpx;
+  height: 80rpx;
+  padding: 10rpx;
+  border-radius: 30rpx;
+  border: 1px solid #fff;
+  margin-top: 540rpx;
+  left: 65%;
+}
+.main .info {
+  position: absolute;
+  top: 700rpx;
+  width: 500rpx;
+  margin-left: 125rpx;
+  text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
-.login .input input {
-  margin-bottom: 50rpx;
-  padding-bottom: 20rpx;
-  border-bottom: 1px solid #007aff;
+.main .info .name {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #272832;
+  line-height: 74rpx;
 }
-.login .input .tips {
-  float: left;
-  font-size: 32rpx;
-  line-height: 36rpx;
-  color: #ff5d5b;
+.main .info .inck {
+  font-size: 30rpx;
+  line-height: 56rpx;
+  color: #272832;
 }
-.login button {
-  margin-top: 20rpx;
+.main .info .intro {
+  font-size: 24rpx;
+  color: #272832;
+  line-height: 48rpx;
+}
+.footer {
+  position: absolute;
+  bottom: 50rpx;
+  width: 90%;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+.bg {
+  position: relative;
+}
+.bg image {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
+}
+.bg .white {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: -1;
 }
 

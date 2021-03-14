@@ -103,7 +103,16 @@
 	@import '../../common/css/topBar.scss';
 	.topBar{
 		display: flex;
-		justify-content: space-between;
+		.topBarleft{
+			flex: 1;
+		}
+		.topBarCenter{
+			text-align: center;
+			flex: 1;
+		}
+		.topBarRight{
+			flex: 1;
+		}
 	}
 	.body {
 		margin-top: 100rpx;

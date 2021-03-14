@@ -8,7 +8,7 @@
 				<image src="../../static/userHome/back.png" @tap="navToindex"></image>
 			</view>
 			<view class="topBarRight">
-				<image src="../../static/userHome/more.png"></image>
+				<image @tap="navToDetail" src="../../static/userHome/more.png"></image>
 			</view>
 		</view>
 		<view class="main">
@@ -31,7 +31,7 @@
 				<view class="name">{{user.name}}</view>
 				<textarea maxlength="120" :value="myName+'请求加为好友'" ></textarea>
 				<view class="btn">
-					<button class="cancel" type="default" @tap="changeStatus">取消</button>
+					<button class="cancel" type="default" @tap="changeStatus">x</button>
 					<button class="send" type="primary">发送</button>
 				</view>
 			</view>
@@ -60,13 +60,17 @@
 		},
 		onReady(){
 			this.getElementHeight()
-			console.log(this.height)
 		},
 
 		methods: {
 			navToindex() {
 				uni.navigateBack({
 					delta:1
+				})
+			},
+			navToDetail(){
+				uni.navigateTo({
+					url:'../detail/detail'
 				})
 			},
 			changeStatus() {

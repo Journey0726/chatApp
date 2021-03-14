@@ -192,13 +192,17 @@ var _default =
   },
   onReady: function onReady() {
     this.getElementHeight();
-    console.log(this.height);
   },
 
   methods: {
     navToindex: function navToindex() {
       uni.navigateBack({
         delta: 1 });
+
+    },
+    navToDetail: function navToDetail() {
+      uni.navigateTo({
+        url: '../detail/detail' });
 
     },
     changeStatus: function changeStatus() {

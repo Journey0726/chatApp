@@ -10,7 +10,7 @@
 		margin-bottom: var(--status-bar-height);
 		position: fixed;
 
-		top: 0px;
+		top: 0;
 		left: 0;
 		
 		background-color: rgba(255,255,255,0.96);
@@ -21,7 +21,6 @@
 			margin-left: 25rpx;
 
 			image {
-				
 				width: 50rpx;
 				height: 50rpx;
 				border-radius: 16rpx;
@@ -29,7 +28,7 @@
 		}
 
 		.topBarCenter {
-			padding-top: 10rpx;
+			padding-top: 20rpx;
 			.img {
 				margin-top: 10rpx;
 				width: 48rpx;
@@ -41,6 +40,7 @@
 			display: flex;
 			line-height: 98rpx;
 			margin-right: 12rpx;
+			justify-content: flex-end;
 			image {
 				width: 42rpx;
 				height: 42rpx;

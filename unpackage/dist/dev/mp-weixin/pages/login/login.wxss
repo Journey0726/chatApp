@@ -35,7 +35,7 @@
   padding-top: 25px;
   margin-bottom: 25px;
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.96);
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
@@ -50,7 +50,7 @@
   border-radius: 16rpx;
 }
 .topBar .topBarCenter {
-  padding-top: 10rpx;
+  padding-top: 20rpx;
 }
 .topBar .topBarCenter .img {
   margin-top: 10rpx;
@@ -63,6 +63,9 @@
   display: flex;
   line-height: 98rpx;
   margin-right: 12rpx;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
 }
 .topBar .topBarRight image {
   width: 42rpx;

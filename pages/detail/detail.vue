@@ -223,6 +223,7 @@
 
 		.topBarleft {
 			flex: 0.8;
+
 		}
 
 		.topBarCenter {

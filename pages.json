@@ -65,6 +65,16 @@
             }
             
         }
+        ,{
+            "path" : "pages/chatRoom/chatRoom",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

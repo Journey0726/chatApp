@@ -88,5 +88,51 @@ export default {
 			}
 		]
 		return isFriends
+	},
+	message(){
+		let msgs = [
+			{
+				id:'a',
+				imgUrl:'../../static/topbar/user.png',
+				message:'无极之道，在我内心延续,无极之道，在我内心延续无极之道，在我内心延续无极之道，在我内心延续',
+				types:0,
+				time:new Date()-1000,
+				tip:0
+			},
+			{
+				id:'b',
+				imgUrl:'../../static/topbar/user.png',
+				message:'../../static/friends/dog.jpg',
+				types:1,
+				time:new Date()-1000*2*60,
+				tip:1
+			},
+			{
+				id:'a',
+				imgUrl:'../../static/topbar/user.png',
+				message:'无极之道，在我内心延续,死亡如风，常伴吴生',
+				types:0,
+				time:new Date()-1000*5*80,
+				tip:2
+			},
+			{
+				id:'b',
+				imgUrl:'../../static/topbar/user.png',
+				message:'无极之道，在我内心延续,死亡如风，常伴吴生,死亡如风，常伴吴生',
+				types:0,
+				time:new Date()-1000*8*100,
+				tip:3
+			},
+			{
+				id:'a',
+				imgUrl:'../../static/topbar/user.png',
+				message:'../../static/friends/yasuo.jpg',
+				types:1,
+				time:new Date()-1000*10*200*500*9,
+				tip:4
+			},
+			
+		]
+		return msgs
 	}
 }

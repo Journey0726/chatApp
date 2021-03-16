@@ -1,5 +1,6 @@
 <template>
 	<view class="submit">
+	
 		<view class="submit-header">
 			<image src="../static/submit/voice.png" v-show="!isSpeak" @tap="changeSpeak"></image>
 			<image src="../static/submit/keyboard.png" v-show="isSpeak" @tap="changeSpeak"></image>
@@ -21,7 +22,11 @@
 				<view class="img"><image src="../static/submit/file.png"></image></view>
 			</view>
 			<emoji v-if="isEmoji" class="document" @insertEmoji= 'insertEmoji'></emoji>
+			
 		</view>
+		<view class="status_bar">
+		          <!-- 这里是状态栏 -->
+		      </view>
 	</view>
 </template>
 
@@ -60,11 +65,19 @@
 			changeSpeak(){
 				this.isSpeak = !this.isSpeak
 			},
+			//发出消息
 			sendMsg(){
 				if(this.textArea.trim().length>0)
-				this.$emit('sendMsg',this.textArea)
+				this.send(this.textArea,0)
 				this.textArea = ''
 				this.insertContent()
+			},
+			//发送的方法
+			send(msg,types){
+				let data = {
+					msg,types
+				}
+				this.$emit('sendMsg',data)
 			},
 			insertContent(){
 				if(this.textArea.length>0){
@@ -144,4 +157,9 @@
 			}
 		}
 	}
+.status_bar{
+	height:env(safe-area-inset-bottom);
+	width: 100%;
+}
+
 </style>

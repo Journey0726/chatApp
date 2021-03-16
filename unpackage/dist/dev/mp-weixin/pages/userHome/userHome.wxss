@@ -77,6 +77,10 @@
   font-size: 32rpx;
   color: #272833;
 }
+.status_bottom {
+  height: env(safe-area-inset-bottom);
+  width: 100%;
+}
 .topBar {
   display: -webkit-box;
   display: -webkit-flex;

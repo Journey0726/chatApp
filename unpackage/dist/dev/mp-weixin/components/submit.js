@@ -143,6 +143,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
 {
   data: function data() {
     return {
@@ -157,6 +162,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     emoji: emoji },
 
   methods: {
+    insertEmoji: function insertEmoji(item) {
+      this.textArea = this.textArea + item;
+      this.insertContent();
+    },
     moreEmoji: function moreEmoji() {
       this.isEmoji = !this.isEmoji;
       if (this.isMoreUse === true)

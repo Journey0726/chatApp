@@ -1,1 +1,1 @@
-<view class="content"><block wx:for="{{emoji}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="emoji">{{''+item+''}}</view></block></view>
+<view class="content"><block wx:for="{{emoji}}" wx:for-item="list" wx:for-index="index" wx:key="index"><view class="emojiRow"><block wx:for="{{list}}" wx:for-item="item" wx:for-index="__i0__"><view data-event-opts="{{[['tap',[['insertEmoji',['$0'],[[['emoji','',index],['','',__i0__]]]]]]]}}" class="emojiItem" bindtap="__e">{{''+item+''}}</view></block></view></block></view>

@@ -62,8 +62,12 @@
 						</view>
 					</view>
 				</view>
+			<view class="status_bottom">
+				<!-- 这里是状态栏 -->
+			</view>
 			</view>
 		</view>
+	
 	</view>
 </template>
 
@@ -106,6 +110,10 @@
 
 <style lang="scss">
 	@import '../../common/css/topBar.scss';
+	.status_bottom{
+		height:env(safe-area-inset-bottom);
+		width: 100%;
+	}
 	.topBar{
 		display: flex;
 		.topBarleft{

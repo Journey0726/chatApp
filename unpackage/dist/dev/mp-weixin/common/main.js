@@ -13,7 +13,7 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 5));function 
 _vue.default.config.productionTip = false;
 
 _App.default.mpType = 'app';
-
+_vue.default.prototype.$bus = new _vue.default();
 var app = new _vue.default(_objectSpread({},
 _App.default));
 

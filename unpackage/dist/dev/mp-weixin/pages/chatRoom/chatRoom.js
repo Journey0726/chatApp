@@ -284,7 +284,6 @@ var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);function _i
         imgUrl: '../../static/topbar/user.png',
         tip: that.myMessage.length };
 
-      console.log(myMSG.tip);
       this.myMessage.push(myMSG);
       this.goBottom();
     } } };exports.default = _default;

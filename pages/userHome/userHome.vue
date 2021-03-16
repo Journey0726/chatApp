@@ -35,6 +35,9 @@
 					<button class="send" type="primary">发送</button>
 				</view>
 			</view>
+			<view class="status_bottom">
+				<!-- 这里是状态栏 -->
+			</view>
 		</view>
 
 		<view class="bg">
@@ -89,7 +92,10 @@
 
 <style lang="scss">
 	@import '../../common/css/topBar.scss';
-
+	.status_bottom{
+		height:env(safe-area-inset-bottom);
+		width: 100%;
+	}
 	.topBar {
 		display: flex;
 		background-color: rgba(#fff, 0.1);

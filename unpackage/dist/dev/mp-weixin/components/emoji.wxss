@@ -27,5 +27,32 @@
 .content {
   height: 500rpx;
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  overflow-x: scroll;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.content .emojiRow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  height: 100rpx;
+}
+.content .emojiRow .emojiItem {
+  padding: 25rpx;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+          align-items: flex-end;
 }
 

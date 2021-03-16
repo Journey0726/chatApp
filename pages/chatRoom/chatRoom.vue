@@ -126,8 +126,8 @@
 			sendMsg(res){
 				let that = this
 				let myMSG = {
-					types:0,
-					message:res,
+					types:res.types,
+					message:res.msg,
 					id:'b',
 					time:new Date(),
 					imgUrl:'../../static/topbar/user.png',

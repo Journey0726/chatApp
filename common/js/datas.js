@@ -70,6 +70,38 @@ export default {
 			time: new Date(),
 			tip: 58,
 			info: '死亡如风'
+		},
+		{
+			id: 11,
+			img: '../../static/friends/yasuo.jpg',
+			name: '亚索',
+			time: new Date(),
+			tip: 58,
+			info: '死亡如风'
+		},
+		{
+			id: 12,
+			img: '../../static/friends/yasuo.jpg',
+			name: '亚索',
+			time: new Date(),
+			tip: 58,
+			info: '死亡如风'
+		},
+		{
+			id: 13,
+			img: '../../static/friends/yasuo.jpg',
+			name: '亚索',
+			time: new Date(),
+			tip: 5,
+			info: '死亡如风'
+		},
+		{
+			id: 14,
+			img: '../../static/friends/yasuo.jpg',
+			name: '亚索',
+			time: new Date(),
+			tip: 58,
+			info: '死亡如风'
 		}
 		 ]
 		 return friendArr

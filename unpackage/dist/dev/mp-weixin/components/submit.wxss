@@ -86,7 +86,6 @@
           flex-wrap: wrap;
 }
 .submit .submit-main .document .img {
-  width: 25%;
   text-align: center;
 }
 .submit .submit-main .document .img image {
@@ -95,5 +94,9 @@
   padding: 15rpx;
   width: 80rpx;
   height: 80rpx;
+}
+.status_bar {
+  height: env(safe-area-inset-bottom);
+  width: 100%;
 }
 

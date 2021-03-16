@@ -114,43 +114,76 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var emoji = function emoji() {__webpack_require__.e(/*! require.ensure | components/emoji */ "components/emoji").then((function () {return resolve(__webpack_require__(/*! ./emoji.vue */ 95));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   data: function data() {
     return {
-      isSpeak: true,
-      isMoreUse: false };
+      isHasContent: false,
+      isSpeak: false,
+      isMoreUse: false,
+      isEmoji: false,
+      textArea: '' };
 
   },
+  components: {
+    emoji: emoji },
+
   methods: {
+    moreEmoji: function moreEmoji() {
+      this.isEmoji = !this.isEmoji;
+      if (this.isMoreUse === true)
+      this.isMoreUse = !this.isEmoji;
+      this.$emit('moreUse', this.isEmoji, this.isMoreUse);
+    },
     moreUse: function moreUse() {
       this.isMoreUse = !this.isMoreUse;
-
+      if (this.isEmoji === true)
+      this.isEmoji = !this.isMoreUse;
+      this.$emit('moreUse', this.isEmoji, this.isMoreUse);
     },
     changeSpeak: function changeSpeak() {
       this.isSpeak = !this.isSpeak;
+    },
+    sendMsg: function sendMsg() {
+      if (this.textArea.trim().length > 0)
+      this.$emit('sendMsg', this.textArea);
+      this.textArea = '';
+      this.insertContent();
+    },
+    insertContent: function insertContent() {
+      if (this.textArea.length > 0) {
+        this.isHasContent = true;
+      } else {
+        this.isHasContent = false;
+      }
     } } };exports.default = _default;
 
 /***/ }),

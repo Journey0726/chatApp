@@ -122,7 +122,6 @@ page {
 .chat .chatMain {
   padding-left: 32rpx;
   padding-right: 32rpx;
-  padding-bottom: 200rpx;
   padding-top: 20rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -155,6 +154,7 @@ page {
   max-width: 480rpx;
 }
 .chat .chatMain .chatItem .chatMsg .chatContainer .message {
+  border-radius: 18rpx;
   padding: 16rpx 24rpx;
   font-size: 32rpx;
   color: #272832;

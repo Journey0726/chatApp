@@ -221,7 +221,8 @@ var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);function _i
     return {
       myMessage: [],
       picList: [],
-      scrollToView: '' };
+      scrollToView: '',
+      bottomHeight: 200 };
 
   },
   components: {
@@ -241,9 +242,7 @@ var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);function _i
       this.myMessage.forEach(function (item) {
         if (item.types === 1) _this.picList.push(item.message);
       });
-      this.$nextTick(function () {
-        this.scrollToView = 'msg' + this.myMessage[this.myMessage.length - 1].tip;
-      });
+      this.goBottom();
 
     },
     navBack: function navBack() {
@@ -260,6 +259,34 @@ var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);function _i
           itemList: ['发送给朋友', '保存图片', '收藏'] } });
 
 
+    },
+    //监听组件的点击
+    moreUse: function moreUse(flag1, flag2) {
+      console.log(flag1, flag2);
+      if (!flag1 && !flag2)
+      this.bottomHeight = 200;else
+      this.bottomHeight = 800;
+      this.goBottom();
+    },
+    goBottom: function goBottom() {
+      this.scrollToView = '';
+      this.$nextTick(function () {
+        this.scrollToView = 'msg' + this.myMessage[this.myMessage.length - 1].tip;
+      });
+    },
+    sendMsg: function sendMsg(res) {
+      var that = this;
+      var myMSG = {
+        types: 0,
+        message: res,
+        id: 'b',
+        time: new Date(),
+        imgUrl: '../../static/topbar/user.png',
+        tip: that.myMessage.length };
+
+      console.log(myMSG.tip);
+      this.myMessage.push(myMSG);
+      this.goBottom();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

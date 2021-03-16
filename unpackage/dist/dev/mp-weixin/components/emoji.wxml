@@ -1,0 +1,1 @@
+<view class="content"><block wx:for="{{emoji}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="emoji">{{''+item+''}}</view></block></view>

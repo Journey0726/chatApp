@@ -110,10 +110,11 @@
 				});
 			},
 			//监听组件的点击
-			moreUse(flag){
-				if(flag)
-				this.bottomHeight = 800
-				else this.bottomHeight = 200
+			moreUse(flag1,flag2){
+				console.log(flag1,flag2)
+				if(!flag1 && !flag2)
+				this.bottomHeight = 200
+				else this.bottomHeight = 800
 				this.goBottom()
 			},
 			goBottom(){
@@ -132,7 +133,6 @@
 					imgUrl:'../../static/topbar/user.png',
 					tip:that.myMessage.length
 				}
-				console.log(myMSG.tip)
 				this.myMessage.push(myMSG)
 				this.goBottom()
 			}

@@ -294,7 +294,7 @@ var _datas = _interopRequireDefault(__webpack_require__(/*! ../../common/js/data
 //
 //
 //
-var _default = { data: function data() {return { friendList: '' };}, onLoad: function onLoad() {this.firends();}, filters: { showDate: function showDate(val) {return (0, _utils.getDate)(val);} }, methods: { navTosearch: function navTosearch() {uni.navigateTo({ url: '../search/search' });}, firends: function firends() {this.friendList = _datas.default.firends();} } };exports.default = _default;
+var _default = { data: function data() {return { friendList: [] };}, onLoad: function onLoad() {this.firends();}, filters: { showDate: function showDate(val) {return (0, _utils.getDate)(val);} }, methods: { navTosearch: function navTosearch() {uni.navigateTo({ url: '../search/search' });}, navTochatRoom: function navTochatRoom() {uni.navigateTo({ url: '../chatRoom/chatRoom' });}, firends: function firends() {this.friendList = _datas.default.firends();} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

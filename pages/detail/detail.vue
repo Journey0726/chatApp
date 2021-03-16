@@ -89,7 +89,7 @@
 			<view class="footer">
 			</view>
 
-			<button type="default">退出登录</button>
+			<button class="exit" type="default">退出登录</button>
 		</view>
 		<view class="modify" :animation="animationData">
 			<view class="modify-head">
@@ -217,7 +217,13 @@
 
 <style lang="scss">
 	@import '../../common/css/topBar.scss';
-
+	
+	
+	.content{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
 	.topBar {
 		display: flex;
 
@@ -281,6 +287,9 @@
 	}
 	.height{
 		margin-bottom: 150rpx;
+	}
+	.exit{
+		width: 90%;
 	}
 	// 修改
 	.modify{

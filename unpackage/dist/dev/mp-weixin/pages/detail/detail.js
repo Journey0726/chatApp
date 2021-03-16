@@ -97,6 +97,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var f0 = _vm._f("getDate")(_vm.simulation.registerTime)
+
   if (!_vm._isMounted) {
     _vm.e0 = function($event) {
       _vm.show = true
@@ -111,6 +113,15 @@ var render = function() {
       _vm.show = false
     }
   }
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        f0: f0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -144,7 +155,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var lClipper = function lClipper() {Promise.all(/*! require.ensure | uni_modules/lime-clipper/components/lime-clipper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/lime-clipper/components/lime-clipper/index")]).then((function () {return resolve(__webpack_require__(/*! @/uni_modules/lime-clipper/components/lime-clipper/ */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -253,6 +264,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);var lClipper = function lClipper() {Promise.all(/*! require.ensure | uni_modules/lime-clipper/components/lime-clipper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/lime-clipper/components/lime-clipper/index")]).then((function () {return resolve(__webpack_require__(/*! @/uni_modules/lime-clipper/components/lime-clipper/ */ 75));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: { lClipper: lClipper },
   data: function data() {
@@ -260,15 +272,27 @@ __webpack_require__.r(__webpack_exports__);
       format: true });
 
     return {
+      //模拟数据
+      simulation: {
+        name: '李青',
+        sign: '我用双手成就你的梦想',
+        registerTime: new Date(),
+        sex: '男',
+        birth: '19990752',
+        tell: '18885888588',
+        meil: '55555555@qq.com' },
+
       show: false,
       imgSrc: '../../static/friends/yasuo.jpg',
       index: 0,
       array: ['男', '女'],
       date: currentDate,
-      modifyArea: '修改的东西',
       animationData: {},
       isModify: false,
-      height: '' };
+      height: '',
+      val: '',
+      selectData: '',
+      isPwd: 'none' };
 
   },
   computed: {
@@ -281,7 +305,6 @@ __webpack_require__.r(__webpack_exports__);
 
   onReady: function onReady() {
     this.getElementHeight();
-    console.log(this.height);
   },
   methods: {
     navBack: function navBack() {
@@ -310,7 +333,14 @@ __webpack_require__.r(__webpack_exports__);
       day = day > 9 ? day : '0' + day;
       return "".concat(year, "-").concat(month, "-").concat(day);
     },
-    modify: function modify() {
+    modify: function modify(val, data, status) {
+      this.val = val;
+      this.selectData = data;
+      if (status === true) {
+        this.isPwd = 'block';
+      } else {
+        this.isPwd = 'none';
+      }
       this.isModify = !this.isModify;
       var animation = uni.createAnimation({
         duration: 300,
@@ -329,9 +359,14 @@ __webpack_require__.r(__webpack_exports__);
     getElementHeight: function getElementHeight() {var _this = this;
       var query = uni.createSelectorQuery().in(this);
       query.select('.height').boundingClientRect(function (data) {
-        console.log(data);
         _this.height = data.height + 1000;
       }).exec();
+    } },
+
+
+  filters: {
+    getDate: function getDate(val) {
+      return (0, _utils.detailTime)(val);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

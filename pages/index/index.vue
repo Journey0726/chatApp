@@ -43,7 +43,7 @@
 					</view>
 				</view>
 
-				<view class="friendList" v-for="item in friendList" :key="item.id">
+				<view class="friendList" v-for="item in friendList" :key="item.id" @tap="navTochatRoom">
 					<view class="friendList-L">
 						<text class="tip" v-if="item.tip">{{item.tip}}</text>
 						<image :src="item.img"></image>
@@ -90,6 +90,11 @@
 			navTosearch(){
 				uni.navigateTo({
 					url:'../search/search'
+				})
+			},
+			navTochatRoom(){
+				uni.navigateTo({
+					url:'../chatRoom/chatRoom'
 				})
 			},
 			firends(){

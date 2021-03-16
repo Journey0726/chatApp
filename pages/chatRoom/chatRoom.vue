@@ -16,9 +16,9 @@
 				<image src="../../static/topbar/user.png" mode=""></image>
 			</view>
 		</view>
-		<scroll-view class="chat" scroll-y="true" scroll-with-animation="true">
-			<view class="chatMain">
-				<view class="chatItem" v-for="(item,index) in myMessage" :key="index">
+		<scroll-view class="chat" scroll-y="true" scroll-with-animation="true" :scroll-into-view='scrollToView'>
+			<view class="chatMain" :style="{'padding-bottom':bottomHeight+'rpx'}">
+				<view class="chatItem" v-for="(item,index) in myMessage" :key="index" :id ="'msg' + item.tip">
 					<view class="chatTime">{{item.time|showDate}}</view>
 					<view class="chatMsg chatMsgL" v-if="item.id ==='a'">
 						<image :src="item.imgUrl" class="headPic"></image>
@@ -47,12 +47,20 @@
 
 
 			</view>
-
+		<view class="pad">
+			<!-- 这里是状态栏 -->
+		</view>
+		<view class="status_bar">
+			<!-- 这里是状态栏 -->
+		</view>
 		</scroll-view>
+	<submit @sendMsg='sendMsg' @moreUse='moreUse'></submit>
+
 	</view>
 </template>
 
 <script>
+	import submit from '../../components/submit.vue'
 	import datas from '../../common/js/datas.js'
 	import {
 		getChatDate
@@ -61,8 +69,13 @@
 		data() {
 			return {
 				myMessage: [],
-				picList:[]
+				picList:[],
+				scrollToView:'',
+				bottomHeight:200
 			};
+		},
+		components:{
+			submit
 		},
 		onLoad() {
 			this.message()
@@ -78,8 +91,7 @@
 				this.myMessage.forEach((item)=>{
 					if(item.types===1) this.picList.push(item.message)
 				})
-				
-				console.log(this.picList)
+				this.goBottom()
 
 			},
 			navBack() {
@@ -94,28 +106,49 @@
 					current:path,
 					longPressActions: {
 						itemList: ['发送给朋友', '保存图片', '收藏'],
-						success: function(data) {
-							console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');
-						},
-						fail: function(err) {
-							console.log(err.errMsg);
-						}
 					}
 				});
+			},
+			//监听组件的点击
+			moreUse(flag){
+				if(flag)
+				this.bottomHeight = 800
+				else this.bottomHeight = 200
+				this.goBottom()
+			},
+			goBottom(){
+				this.scrollToView = ''
+				this.$nextTick(function(){
+					this.scrollToView = 'msg' + this.myMessage[this.myMessage.length-1].tip
+				})
+			},
+			sendMsg(res){
+				let that = this
+				let myMSG = {
+					types:0,
+					message:res,
+					id:'b',
+					time:new Date(),
+					imgUrl:'../../static/topbar/user.png',
+					tip:that.myMessage.length
+				}
+				console.log(myMSG.tip)
+				this.myMessage.push(myMSG)
+				this.goBottom()
 			}
-
 		}
 	}
 </script>
 
 <style lang="scss">
 	@import '../../common/css/topBar.scss';
-
 	page {
 		height: 100%
 	}
 
 	.content {
+		position: fixed;
+		width: 100%;
 		height: 100%;
 		background-color: rgba(244, 244, 244, 0.96);
 	}
@@ -149,16 +182,15 @@
 	.chat {
 		height: 100%;
 		margin-top: 100rpx;
-
 		.chatMain {
 			padding-left: $uni-spacing-col-base;
 			padding-right: $uni-spacing-col-base;
-			padding-bottom: 100rpx;
-			padding-top: 100rpx;
+			// padding-bottom: 200rpx;
+			padding-top: 20rpx;
 			display: flex;
 			flex-direction: column;
-
 			.chatItem {
+
 				.chatTime {
 					font-size: 29rpx;
 					color: rgba(39, 40, 50, 0.3);
@@ -182,6 +214,7 @@
 						max-width: 480rpx;
 
 						.message {
+							border-radius: 18rpx;
 							padding: 16rpx 24rpx;
 							font-size: 32rpx;
 							color: rgba(39, 40, 50, 1);
@@ -221,4 +254,5 @@
 			}
 		}
 	}
+
 </style>

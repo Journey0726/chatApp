@@ -822,7 +822,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1801,7 +1801,7 @@ uni$1;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getDate = getDate;function getDate(val) {
+Object.defineProperty(exports, "__esModule", { value: true });exports.getDate = getDate;exports.detailTime = detailTime;exports.getChatDate = getChatDate;function getDate(val) {
   var nTime = new Date();
   var oTime = new Date(val);
   var d = oTime.getTime();
@@ -1840,6 +1840,94 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.getDate = 
   else {
       if (M < 9) {
         M = '0' + M;
+      }
+      return Y + '/' + M + '/' + D;
+    }
+}
+function detailTime(val) {
+  var oTime = new Date(val);
+  var d = oTime.getTime();
+  var h = oTime.getHours();
+  var m = oTime.getMinutes();
+  var Y = oTime.getFullYear();
+  var M = oTime.getMonth() + 1;
+  var D = oTime.getDate();
+  if (h < 10) {
+    h = '0' + h;
+  }
+  if (m < 10) {
+    m = '0' + m;
+  }
+  if (M < 10) {
+    M = '0' + M;
+  }
+  if (D < 10) {
+    D = '0' + D;
+  }
+  return Y + '/' + M + '/' + D + ' ' + h + ':' + m;
+}
+
+//聊天的时间
+function getChatDate(val) {
+  var nTime = new Date();
+  var oTime = new Date(val);
+  var d = oTime.getTime();
+  var h = oTime.getHours();
+  var m = oTime.getMinutes();
+  var Y = oTime.getFullYear();
+  var M = oTime.getMonth() + 1;
+  var D = oTime.getDate();
+  var nd = nTime.getTime();
+  var nh = nTime.getHours();
+  var nm = nTime.getMinutes();
+  var nY = nTime.getFullYear();
+  var nM = nTime.getMonth() + 1;
+  var nD = nTime.getDate();
+  //当天的时间
+  if (D === nD && M === nM && Y === nY) {
+    if (h < 10) {
+      h = '0' + h;
+    }
+    if (m < 10) {
+      m = '0' + m;
+    }
+    return h + ':' + m;
+  }
+  // 昨天的时间
+  if (M === nM && Y === nY && nD - D === 1) {
+    if (h < 10) {
+      h = '0' + h;
+    }
+    if (m < 10) {
+      m = '0' + m;
+    }
+    return '昨天' + h + ':' + m;
+  }
+  //今年的时间
+  else if (Y === nY) {
+      if (h < 10) {
+        h = '0' + h;
+      }
+      if (m < 10) {
+        m = '0' + m;
+      }
+      if (D < 10) {
+        D = '0' + D;
+      }
+      return M + '月' + D + '日' + h + ':' + m;
+    } else
+    {
+      if (M < 10) {
+        M = '0' + M;
+      }
+      if (h < 10) {
+        h = '0' + h;
+      }
+      if (m < 10) {
+        m = '0' + m;
+      }
+      if (D < 10) {
+        D = '0' + D;
       }
       return Y + '/' + M + '/' + D;
     }
@@ -1945,6 +2033,76 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
     return isFriends;
+  },
+  message: function message() {
+    var msgs = [
+    {
+      id: 'a',
+      imgUrl: '../../static/topbar/user.png',
+      message: '无极之道，在我内心延续,无极之道，在我内心延续无极之道，在我内心延续无极之道，在我内心延续',
+      types: 0,
+      time: new Date() - 1000,
+      tip: 0 },
+
+    {
+      id: 'b',
+      imgUrl: '../../static/topbar/user.png',
+      message: '../../static/friends/dog.jpg',
+      types: 1,
+      time: new Date() - 1000 * 2 * 60,
+      tip: 1 },
+
+    {
+      id: 'a',
+      imgUrl: '../../static/topbar/user.png',
+      message: '无极之道，在我内心延续,死亡如风，常伴吴生',
+      types: 0,
+      time: new Date() - 1000 * 5 * 80,
+      tip: 2 },
+
+    {
+      id: 'b',
+      imgUrl: '../../static/topbar/user.png',
+      message: '无极之道，在我内心延续,死亡如风，常伴吴生,死亡如风，常伴吴生',
+      types: 0,
+      time: new Date() - 1000 * 8 * 100,
+      tip: 3 },
+
+    {
+      id: 'a',
+      imgUrl: '../../static/topbar/user.png',
+      message: '../../static/friends/yasuo.jpg',
+      types: 1,
+      time: new Date() - 1000 * 10 * 200 * 500 * 9,
+      tip: 4 },
+
+    {
+      id: 'a',
+      imgUrl: '../../static/topbar/user.png',
+      message: '../../static/friends/yasuo.jpg',
+      types: 1,
+      time: new Date() - 1000 * 10 * 200 * 500 * 9,
+      tip: 5 },
+
+    {
+      id: 'a',
+      imgUrl: '../../static/topbar/user.png',
+      message: '../../static/friends/yasuo.jpg',
+      types: 1,
+      time: new Date() - 1000 * 10 * 200 * 500 * 9,
+      tip: 6 },
+
+    {
+      id: 'a',
+      imgUrl: '../../static/topbar/user.png',
+      message: '../../static/friends/yasuo.jpg',
+      types: 1,
+      time: new Date() - 1000 * 10 * 200 * 500 * 9,
+      tip: 7 }];
+
+
+
+    return msgs;
   } };exports.default = _default;
 
 /***/ }),
@@ -7475,7 +7633,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7496,14 +7654,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7589,7 +7747,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"yike","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8039,7 +8197,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 62:
+/***/ 78:
 /*!***********************************************************************************************************!*\
   !*** D:/HBuilderX/uniapp练习/yike项目/yike/uni_modules/lime-clipper/components/lime-clipper/images/photo.svg ***!
   \***********************************************************************************************************/
@@ -8050,7 +8208,7 @@ module.exports = __webpack_require__.p + "static/img/photo.bb72ed3e.svg";
 
 /***/ }),
 
-/***/ 63:
+/***/ 79:
 /*!************************************************************************************************************!*\
   !*** D:/HBuilderX/uniapp练习/yike项目/yike/uni_modules/lime-clipper/components/lime-clipper/images/rotate.svg ***!
   \************************************************************************************************************/
@@ -8061,18 +8219,147 @@ module.exports = __webpack_require__.p + "static/img/rotate.e0dadbe4.svg";
 
 /***/ }),
 
-/***/ 66:
+/***/ 8:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 82:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 67);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 83);
 
 /***/ }),
 
-/***/ 67:
+/***/ 83:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -8103,7 +8390,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 68);
+module.exports = __webpack_require__(/*! ./runtime */ 84);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -8120,7 +8407,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 68:
+/***/ 84:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -8852,7 +9139,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 69:
+/***/ 85:
 /*!***************************************************************************************************!*\
   !*** D:/HBuilderX/uniapp练习/yike项目/yike/uni_modules/lime-clipper/components/lime-clipper/utils.js ***!
   \***************************************************************************************************/
@@ -9105,135 +9392,6 @@ function imageTouchMoveOfCalcOffset(data, clientXForLeft, clientYForLeft) {
 
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 8:
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
 
 /***/ })
 

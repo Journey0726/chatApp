@@ -131,6 +131,30 @@ export default {
 				time:new Date()-1000*10*200*500*9,
 				tip:4
 			},
+			{
+				id:'a',
+				imgUrl:'../../static/topbar/user.png',
+				message:'../../static/friends/yasuo.jpg',
+				types:1,
+				time:new Date()-1000*10*200*500*9,
+				tip:5
+			},
+			{
+				id:'a',
+				imgUrl:'../../static/topbar/user.png',
+				message:'../../static/friends/yasuo.jpg',
+				types:1,
+				time:new Date()-1000*10*200*500*9,
+				tip:6
+			},
+			{
+				id:'a',
+				imgUrl:'../../static/topbar/user.png',
+				message:'../../static/friends/yasuo.jpg',
+				types:1,
+				time:new Date()-1000*10*200*500*9,
+				tip:7
+			},
 			
 		]
 		return msgs

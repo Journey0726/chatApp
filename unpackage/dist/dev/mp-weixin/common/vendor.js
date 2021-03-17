@@ -2072,7 +2072,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       id: 'a',
       imgUrl: '../../static/topbar/user.png',
       message: {
-        voice: 'a',
+        voice: 'https://music.163.com/song/media/outer/url?id=1478246988',
         time: 60,
         src: 'https://music.163.com/song/media/outer/url?id=1478246988' },
 
@@ -2100,7 +2100,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       id: 'b',
       imgUrl: '../../static/topbar/user.png',
       message: {
-        voice: 'b',
+        voice: 'https://music.163.com/song/media/outer/url?id=1478246988',
         time: 1,
         src: 'https://music.163.com/song/media/outer/url?id=1478246988' },
 
@@ -8237,28 +8237,6 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 78:
-/*!***********************************************************************************************************!*\
-  !*** D:/HBuilderX/uniapp练习/yike项目/yike/uni_modules/lime-clipper/components/lime-clipper/images/photo.svg ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/photo.bb72ed3e.svg";
-
-/***/ }),
-
-/***/ 79:
-/*!************************************************************************************************************!*\
-  !*** D:/HBuilderX/uniapp练习/yike项目/yike/uni_modules/lime-clipper/components/lime-clipper/images/rotate.svg ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/rotate.e0dadbe4.svg";
-
-/***/ }),
-
 /***/ 8:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -8388,18 +8366,40 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 82:
+/***/ 85:
+/*!***********************************************************************************************************!*\
+  !*** D:/HBuilderX/uniapp练习/yike项目/yike/uni_modules/lime-clipper/components/lime-clipper/images/photo.svg ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/photo.bb72ed3e.svg";
+
+/***/ }),
+
+/***/ 86:
+/*!************************************************************************************************************!*\
+  !*** D:/HBuilderX/uniapp练习/yike项目/yike/uni_modules/lime-clipper/components/lime-clipper/images/rotate.svg ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/rotate.e0dadbe4.svg";
+
+/***/ }),
+
+/***/ 89:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 83);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 90);
 
 /***/ }),
 
-/***/ 83:
+/***/ 90:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -8430,7 +8430,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 84);
+module.exports = __webpack_require__(/*! ./runtime */ 91);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -8447,7 +8447,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 84:
+/***/ 91:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -9179,7 +9179,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 85:
+/***/ 92:
 /*!***************************************************************************************************!*\
   !*** D:/HBuilderX/uniapp练习/yike项目/yike/uni_modules/lime-clipper/components/lime-clipper/utils.js ***!
   \***************************************************************************************************/

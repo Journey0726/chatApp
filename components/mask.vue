@@ -29,7 +29,7 @@
 		width: 100%;
 		height: 100%;
 		z-index: 50000;
-		background:rgba(#ccc,0.7);
+		background:rgba(#ccc,0.8);
 		position: fixed;
 		top: 0;
 		display: flex;

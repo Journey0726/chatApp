@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "emoji": "/components/emoji"
+    "emoji": "/components/emoji",
+    "my-mask": "/components/mask"
   }
 }

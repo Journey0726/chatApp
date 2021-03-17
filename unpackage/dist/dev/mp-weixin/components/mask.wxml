@@ -1,0 +1,1 @@
+<view class="mask"><view class="title">正在录音...</view><view data-event-opts="{{[['touchend',[['touchend',['$event']]]]]}}" class="cancel" bindtouchend="__e"><image src="../static/submit/cancel.png"></image></view></view>

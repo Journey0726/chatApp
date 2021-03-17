@@ -264,7 +264,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);var lClipper = function lClipper() {Promise.all(/*! require.ensure | uni_modules/lime-clipper/components/lime-clipper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/lime-clipper/components/lime-clipper/index")]).then((function () {return resolve(__webpack_require__(/*! @/uni_modules/lime-clipper/components/lime-clipper/ */ 75));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);var lClipper = function lClipper() {Promise.all(/*! require.ensure | uni_modules/lime-clipper/components/lime-clipper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/lime-clipper/components/lime-clipper/index")]).then((function () {return resolve(__webpack_require__(/*! @/uni_modules/lime-clipper/components/lime-clipper/ */ 82));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: { lClipper: lClipper },
   data: function data() {

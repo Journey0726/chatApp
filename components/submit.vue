@@ -5,7 +5,7 @@
 			<image src="../static/submit/voice.png" v-show="!isSpeak" @tap="changeSpeak"></image>
 			<image src="../static/submit/keyboard.png" v-show="isSpeak" @tap="changeSpeak"></image>
 			<textarea maxlength='50' v-show="!isSpeak" v-model="textArea" confirm-type='done' @confirm="sendMsg"  @input="insertContent" auto-height="true"/>
-			<view class="btn" v-show="isSpeak" @touchstart='speaking' @touchend="endSpeaked">
+			<view class="btn" v-show="isSpeak" @touchstart='speaking' @touchend="endSpeaked" @touchmove.stop.prevent="cancelSpeak">
 				{{speakingOrspeaked}}
 			</view>
 			<image src="../static/submit/express.png" @tap="moreEmoji"></image>
@@ -45,7 +45,9 @@
 				 time:0,
 				 timer:null,
 				 speakingOrspeaked:'按住说话',
-				 isMark:false
+				 isMark:false,
+				 //点击录音的位置
+				 startTouch:0
 			};
 		},
 		components:{
@@ -76,6 +78,7 @@
 					this.isEmoji = false
 					this.isMoreUse = false
 				}
+				this.$emit('moreUse',this.isEmoji,this.isMoreUse)
 			},
 			//发出消息
 			sendMsg(){
@@ -107,7 +110,6 @@
 					count:count,
 					sourceType:[e],
 					success(res) {
-						console.log(res)
 						for(let i in res.tempFilePaths){
 							that.send(res.tempFilePaths[i],1)
 						}
@@ -123,36 +125,46 @@
 				    }
 				});
 			},
-			speaking(){
+			speaking(e){
+				this.startTouch = e.changedTouches[0].pageY
 				this.isMark = true
 				 console.log('开始')
 				 this.speakingOrspeaked = '松开发送'
 				  recorderManager.start();
 				this.timer = setInterval(()=>{
 					this.time++
-					console.log(this.time)
+					if(this.time>9){
+						clearInterval(this.timer)
+						this.endSpeaked()
+					}
 				},1000)
-				if(this.time>10){
-					clearInterval(this.timer)
-				}
+				
 			},
 			endSpeaked(){
-				this.isMark = false
+				
 				 console.log('停止')
 				 this.speakingOrspeaked = '按住说话'
 				let that = this
 				clearInterval(this.timer)
 				recorderManager.stop()
-
-				
 				recorderManager.onStop(res=>{
 					let data = {
 						voice:res.tempFilePath,
 						time:this.time
 					}
+					if(that.time >0 && that.isMark)
 					that.send(data,2)
-					this.time = 0
+					that.time = 0
+					this.isMark = false
 				});
+			},
+			cancelSpeak(e){
+				let endTouch = e.changedTouches[0].pageY
+				if(this.startTouch - endTouch>100){
+					recorderManager.stop()
+					this.isMark = false
+				}
+				
 			}
 		}
 	}
@@ -163,7 +175,7 @@
 		position: fixed;
 		bottom: 0;
 		width: 100%;
-		// height: 500rpx;
+		z-index: 10001;
 		background-color: rgba(244,244,244,0.96) ;
 		.submit-header{
 			border-bottom: 1px solid #808080;
@@ -228,6 +240,11 @@
 .status_bar{
 	height:env(safe-area-inset-bottom);
 	width: 100%;
+}
+myMask{
+	width: 100%;
+	height: 100%;
+	
 }
 
 </style>

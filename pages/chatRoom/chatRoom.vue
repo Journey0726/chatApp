@@ -137,6 +137,7 @@
 				this.scrollToView = ''
 				this.$nextTick(function(){
 					this.scrollToView = 'msg' + this.myMessage[this.myMessage.length-1].tip
+					console.log(this.myMessage.length-1)
 				})
 			},
 			sendMsg(res){
@@ -153,7 +154,10 @@
 					this.picList.push(myMSG.message)
 				}
 				this.myMessage.push(myMSG)
-				this.goBottom()
+				setTimeout(()=>{
+					this.goBottom()
+				},100)
+				
 			},
 			//播放音频
 			playVoice(msg){

@@ -137,7 +137,7 @@
 		.friend {
 			display: flex;
 			flex-direction: column;
-			height: 96rpx;
+			// height: 96rpx;
 
 			.friendList {
 				position: relative;

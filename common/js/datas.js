@@ -126,8 +126,12 @@ export default {
 			{
 				id:'a',
 				imgUrl:'../../static/topbar/user.png',
-				message:'无极之道，在我内心延续,无极之道，在我内心延续无极之道，在我内心延续无极之道，在我内心延续',
-				types:0,
+				message:{
+					voice:'https://music.163.com/song/media/outer/url?id=1478246988',
+					time:60,
+					src:'https://music.163.com/song/media/outer/url?id=1478246988'
+				},
+				types:2,
 				time:new Date()-1000,
 				tip:0
 			},
@@ -150,8 +154,12 @@ export default {
 			{
 				id:'b',
 				imgUrl:'../../static/topbar/user.png',
-				message:'无极之道，在我内心延续,死亡如风，常伴吴生,死亡如风，常伴吴生',
-				types:0,
+				message:{
+					voice:'https://music.163.com/song/media/outer/url?id=1478246988',
+					time:1,
+					src:'https://music.163.com/song/media/outer/url?id=1478246988'
+				},
+				types:2,
 				time:new Date()-1000*8*100,
 				tip:3
 			},

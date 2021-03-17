@@ -5,8 +5,8 @@
 			<image src="../static/submit/voice.png" v-show="!isSpeak" @tap="changeSpeak"></image>
 			<image src="../static/submit/keyboard.png" v-show="isSpeak" @tap="changeSpeak"></image>
 			<textarea maxlength='50' v-show="!isSpeak" v-model="textArea" confirm-type='done' @confirm="sendMsg"  @input="insertContent" auto-height="true"/>
-			<view class="btn" v-show="isSpeak">
-				按住说话
+			<view class="btn" v-show="isSpeak" @touchstart='speaking' @touchend="endSpeaked">
+				{{speakingOrspeaked}}
 			</view>
 			<image src="../static/submit/express.png" @tap="moreEmoji"></image>
 			<image src="../static/submit/more.png" @tap="moreUse" v-if="!isHasContent"></image>
@@ -16,22 +16,23 @@
 		</view>
 		<view class="submit-main" v-if="isMoreUse||isEmoji">
 			<view class="document" v-if="!isEmoji">
-				<view class="img"><image src="../static/submit/photoAlbum.png"></image></view>
-				<view class="img"><image src="../static/submit/shoot.png"></image></view>
-				<view class="img"><image src="../static/submit/location.png"></image></view>
+				<view class="img" @tap="sendPhoto('album')"><image src="../static/submit/photoAlbum.png"></image></view>
+				<view class="img" @tap="sendPhoto('camera ')"><image src="../static/submit/shoot.png"></image></view>
+				<view class="img" @tap="getLocation"><image src="../static/submit/location.png"></image></view>
 				<view class="img"><image src="../static/submit/file.png"></image></view>
 			</view>
 			<emoji v-if="isEmoji" class="document" @insertEmoji= 'insertEmoji'></emoji>
 			
 		</view>
-		<view class="status_bar">
-		          <!-- 这里是状态栏 -->
-		      </view>
+		<myMask v-if='isMark'></myMask>
 	</view>
 </template>
 
 <script>
 	import emoji from './emoji.vue'
+	import myMask from './mask.vue'
+	//录音
+	const recorderManager = uni.getRecorderManager();
 	export default {
 		data() {
 			return {
@@ -39,11 +40,16 @@
 				 isSpeak:false,
 				 isMoreUse:false,
 				 isEmoji:false,
-				 textArea:''
+				 textArea:'',
+				 //定时器，记录录音的时间
+				 time:0,
+				 timer:null,
+				 speakingOrspeaked:'按住说话',
+				 isMark:false
 			};
 		},
 		components:{
-			emoji
+			emoji,	myMask
 		},
 		methods:{
 			insertEmoji(item){
@@ -53,17 +59,23 @@
 			moreEmoji(){
 				this.isEmoji = !this.isEmoji
 				if(this.isMoreUse === true)
-				this.isMoreUse = !this.isEmoji
+				this.isMoreUse = !this.isMoreUse
+				this.isSpeak = false
 				this.$emit('moreUse',this.isEmoji,this.isMoreUse)
 			},
 			moreUse(){
 				this.isMoreUse = !this.isMoreUse
 				if(this.isEmoji ===true)
-				this.isEmoji = !this.isMoreUse
+				this.isEmoji = !this.isEmoji
+				this.isSpeak = false
 				this.$emit('moreUse',this.isEmoji,this.isMoreUse)
 			},
 			changeSpeak(){
 				this.isSpeak = !this.isSpeak
+				if(this.isSpeak===true){
+					this.isEmoji = false
+					this.isMoreUse = false
+				}
 			},
 			//发出消息
 			sendMsg(){
@@ -85,6 +97,62 @@
 				}else{
 					this.isHasContent = false
 				}
+			},
+			sendPhoto(e){
+				let count
+				if(e==='camera') count = 1;
+				else count = 9
+				let that = this
+				uni.chooseImage({
+					count:count,
+					sourceType:[e],
+					success(res) {
+						console.log(res)
+						for(let i in res.tempFilePaths){
+							that.send(res.tempFilePaths[i],1)
+						}
+					}
+				})
+			},
+			getLocation(){
+				uni.getLocation({
+				    type: 'wgs84',
+				    success: function (res) {
+				        console.log('当前位置的经度：' + res.longitude);
+				        console.log('当前位置的纬度：' + res.latitude);
+				    }
+				});
+			},
+			speaking(){
+				this.isMark = true
+				 console.log('开始')
+				 this.speakingOrspeaked = '松开发送'
+				  recorderManager.start();
+				this.timer = setInterval(()=>{
+					this.time++
+					console.log(this.time)
+				},1000)
+				if(this.time>10){
+					clearInterval(this.timer)
+				}
+			},
+			endSpeaked(){
+				this.isMark = false
+				 console.log('停止')
+				 this.speakingOrspeaked = '按住说话'
+				let that = this
+				clearInterval(this.timer)
+				recorderManager.stop()
+
+				
+				recorderManager.onStop(res=>{
+					let data = {
+						voice:res.tempFilePath,
+						time:this.time
+					}
+					that.send(data,2)
+					this.time = 0
+				});
 			}
 		}
 	}

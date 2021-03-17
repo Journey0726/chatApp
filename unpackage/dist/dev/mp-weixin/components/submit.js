@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var emoji = function emoji() {__webpack_require__.e(/*! require.ensure | components/emoji */ "components/emoji").then((function () {return resolve(__webpack_require__(/*! ./emoji.vue */ 95));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var emoji = function emoji() {__webpack_require__.e(/*! require.ensure | components/emoji */ "components/emoji").then((function () {return resolve(__webpack_require__(/*! ./emoji.vue */ 95));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -147,7 +147,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
+//录音
+var recorderManager = uni.getRecorderManager();var _default =
 {
   data: function data() {
     return {
@@ -155,7 +156,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       isSpeak: false,
       isMoreUse: false,
       isEmoji: false,
-      textArea: '' };
+      textArea: '',
+      //定时器，记录录音的时间
+      time: 0,
+      timer: null };
 
   },
   components: {
@@ -169,23 +173,37 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     moreEmoji: function moreEmoji() {
       this.isEmoji = !this.isEmoji;
       if (this.isMoreUse === true)
-      this.isMoreUse = !this.isEmoji;
+      this.isMoreUse = !this.isMoreUse;
+      this.isSpeak = false;
       this.$emit('moreUse', this.isEmoji, this.isMoreUse);
     },
     moreUse: function moreUse() {
       this.isMoreUse = !this.isMoreUse;
       if (this.isEmoji === true)
-      this.isEmoji = !this.isMoreUse;
+      this.isEmoji = !this.isEmoji;
+      this.isSpeak = false;
       this.$emit('moreUse', this.isEmoji, this.isMoreUse);
     },
     changeSpeak: function changeSpeak() {
       this.isSpeak = !this.isSpeak;
+      if (this.isSpeak === true) {
+        this.isEmoji = false;
+        this.isMoreUse = false;
+      }
     },
+    //发出消息
     sendMsg: function sendMsg() {
       if (this.textArea.trim().length > 0)
-      this.$emit('sendMsg', this.textArea);
+      this.send(this.textArea, 0);
       this.textArea = '';
       this.insertContent();
+    },
+    //发送的方法
+    send: function send(msg, types) {
+      var data = {
+        msg: msg, types: types };
+
+      this.$emit('sendMsg', data);
     },
     insertContent: function insertContent() {
       if (this.textArea.length > 0) {
@@ -193,7 +211,65 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       } else {
         this.isHasContent = false;
       }
+    },
+    sendPhoto: function sendPhoto(e) {
+      var count;
+      if (e === 'camera') count = 1;else
+      count = 9;
+      var that = this;
+      uni.chooseImage({
+        count: count,
+        sourceType: [e],
+        success: function success(res) {
+          console.log(res);
+          for (var i in res.tempFilePaths) {
+            that.send(res.tempFilePaths[i], 1);
+          }
+        } });
+
+    },
+    getLocation: function getLocation() {
+      uni.getLocation({
+        type: 'wgs84',
+        success: function success(res) {
+          console.log('当前位置的经度：' + res.longitude);
+          console.log('当前位置的纬度：' + res.latitude);
+        } });
+
+    },
+    speaking: function speaking() {var _this = this;
+      console.log('开始');
+      recorderManager.start();
+      this.timer = setInterval(function () {
+        _this.time++;
+      }, 1000);
+      recorderManager.onStart(function () {
+        console.log(11);
+      });
+
+    },
+    endSpeaked: function endSpeaked() {
+      console.log('停止');
+      var that = this;
+      clearInterval(this.timer);
+      recorderManager.stop();
+      var data = {
+        voice: "res.tempFilePath",
+        time: this.time };
+
+      that.send(data, 2);
+      this.time = 0;
+      // recorderManager.onStop(res=>{
+      // 	console.log(res)
+      // 	let data = {
+      // 		voice:res.tempFilePath,
+      // 		time:this.time
+      // 	}
+      // 	that.send(data,2)
+      // 	//console.log(res)
+      // });
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

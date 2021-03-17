@@ -212,17 +212,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 var _datas = _interopRequireDefault(__webpack_require__(/*! ../../common/js/datas.js */ 16));
-var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var submit = function submit() {__webpack_require__.e(/*! require.ensure | components/submit */ "components/submit").then((function () {return resolve(__webpack_require__(/*! ../../components/submit.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var submit = function submit() {__webpack_require__.e(/*! require.ensure | components/submit */ "components/submit").then((function () {return resolve(__webpack_require__(/*! ../../components/submit.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
+//播放音频
+var innerAudioContext = uni.createInnerAudioContext();var _default =
 {
   data: function data() {
     return {
       myMessage: [],
       picList: [],
       scrollToView: '',
-      bottomHeight: 200 };
+      bottomHeight: 200,
+      isPlay: false };
 
   },
   components: {
@@ -262,7 +276,6 @@ var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);function _i
     },
     //监听组件的点击
     moreUse: function moreUse(flag1, flag2) {
-      console.log(flag1, flag2);
       if (!flag1 && !flag2)
       this.bottomHeight = 200;else
       this.bottomHeight = 800;
@@ -277,15 +290,30 @@ var _utils = __webpack_require__(/*! ../../common/js/utils.js */ 15);function _i
     sendMsg: function sendMsg(res) {
       var that = this;
       var myMSG = {
-        types: 0,
-        message: res,
+        types: res.types,
+        message: res.msg,
         id: 'b',
         time: new Date(),
         imgUrl: '../../static/topbar/user.png',
         tip: that.myMessage.length };
 
+      if (myMSG.types === 1) {
+        this.picList.push(myMSG.message);
+      }
       this.myMessage.push(myMSG);
       this.goBottom();
+    },
+    //播放音频
+    playVideo: function playVideo(msg) {
+      this.isPlay = !this.isPlay;
+
+      innerAudioContext.src = msg.src;
+      if (this.isPlay) {
+        innerAudioContext.autoplay = true;
+      } else
+      {
+        innerAudioContext.paused = true;
+      }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

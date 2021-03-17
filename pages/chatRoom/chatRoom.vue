@@ -23,11 +23,18 @@
 					<view class="chatMsg chatMsgL" v-if="item.id ==='a'">
 						<image :src="item.imgUrl" class="headPic"></image>
 						<view class="chatContainer">
+							<!-- 文字 -->
 							<view class="message" v-if="item.types ===0">
 								{{item.message}}
 							</view>
-							<view class="" v-if='item.types === 1'>
+							<!-- 图片 -->
+							<view v-if='item.types === 1'>
 								<image class="imgMsgs" :src="item.message" @tap="previewPics(item.message)" mode="widthFix"></image>
+							</view>
+							<!-- 音频 -->
+							<view class="vedio" v-if="item.types === 2" @tap="playVoice(item.message)" :style="{width:item.message.time*8+'rpx'}">
+								<image src="../../static/submit/voiceInfp.png" ></image>
+								<view class="">{{item.message.time}}'</view>
 							</view>
 						</view>
 					</view>
@@ -37,8 +44,12 @@
 							<view class="message" v-if="item.types ===0">
 								{{item.message}}
 							</view>
-							<view class="" v-if='item.types === 1'>
+							<view v-if='item.types === 1'>
 								<image class="imgMsgs" :src="item.message" @tap="previewPics(item.message)" mode="widthFix"></image>
+							</view>
+							<view class="vedio" v-if="item.types === 2" @tap="playVoice(item.message)" :style="{width:item.message.time*8+'rpx'}">
+								<image src="../../static/submit/voiceInfp.png"></image>
+								<view class="">{{item.message.time}}'</view>
 							</view>
 						</view>
 					</view>
@@ -54,6 +65,7 @@
 			<!-- 这里是状态栏 -->
 		</view>
 		</scroll-view>
+
 	<submit @sendMsg='sendMsg' @moreUse='moreUse'></submit>
 
 	</view>
@@ -61,21 +73,26 @@
 
 <script>
 	import submit from '../../components/submit.vue'
+	import myMask from '../../components/mask.vue'
 	import datas from '../../common/js/datas.js'
 	import {
 		getChatDate
 	} from '../../common/js/utils.js'
+	//播放音频
+	const innerAudioContext = uni.createInnerAudioContext();
 	export default {
 		data() {
 			return {
 				myMessage: [],
 				picList:[],
 				scrollToView:'',
-				bottomHeight:200
+				bottomHeight:200,
+				isPlay:false
 			};
 		},
 		components:{
-			submit
+			submit,
+		
 		},
 		onLoad() {
 			this.message()
@@ -111,7 +128,6 @@
 			},
 			//监听组件的点击
 			moreUse(flag1,flag2){
-				console.log(flag1,flag2)
 				if(!flag1 && !flag2)
 				this.bottomHeight = 200
 				else this.bottomHeight = 800
@@ -133,8 +149,27 @@
 					imgUrl:'../../static/topbar/user.png',
 					tip:that.myMessage.length
 				}
+				if(myMSG.types ===1){
+					this.picList.push(myMSG.message)
+				}
 				this.myMessage.push(myMSG)
 				this.goBottom()
+			},
+			//播放音频
+			playVoice(msg){
+				 this.isPlay = !this.isPlay
+				 innerAudioContext.src = msg.voice;
+				 innerAudioContext.autoplay = true;
+				 // if(this.isPlay){
+					//  InnerAudioContext.play()
+				 // }
+				 // else{
+					//  innerAudioContext.stop()
+				 // }
+				innerAudioContext.onPlay(() => {
+				  console.log('开始播放');
+				});
+				
 			}
 		}
 	}
@@ -145,7 +180,7 @@
 	page {
 		height: 100%
 	}
-
+	
 	.content {
 		position: fixed;
 		width: 100%;
@@ -225,6 +260,20 @@
 							padding: 16rpx 24rpx;
 							max-width: 400rpx;
 						}
+						.vedio{
+							// width: 400rpx;
+							min-width: 100rpx;
+							max-width: 480rpx;
+							height: 80rpx;
+							border-radius: 18rpx;
+							display: flex;
+							align-items: center;
+							image{
+								width: 45rpx;
+								height:45rpx;
+								margin: 0 15rpx;
+							}
+						}
 
 					}
 				}
@@ -234,6 +283,9 @@
 						margin-left: 16rpx;
 
 						.message {
+							background-color: rgba(255, 255, 255, 1);
+						}
+						.vedio{
 							background-color: rgba(255, 255, 255, 1);
 						}
 					}
@@ -247,6 +299,14 @@
 
 						.message {
 							background-color: rgba(#55aaff, 1);
+						}
+						.vedio{
+							margin-right: 16rpx;
+							flex-direction: row-reverse;
+							background-color: rgba(#55aaff, 1);
+							image{
+								transform: rotate(180deg);
+							}
 						}
 					}
 				}

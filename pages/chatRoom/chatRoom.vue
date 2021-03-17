@@ -36,6 +36,14 @@
 								<image src="../../static/submit/voiceInfp.png" ></image>
 								<view class="">{{item.message.time}}'</view>
 							</view>
+							<!-- 位置 -->
+							<view class="location" v-if="item.types === 3" @tap="openMap(item.message)">
+								<view class="name">{{item.message.name}}</view>
+								<view class="address">{{item.message.address}}</view>
+								<view>
+									<map  class="map" :latitude="item.message.latitude" :longitude="item.message.longitude"></map>
+								</view>
+							</view>
 						</view>
 					</view>
 					<view class="chatMsg chatMsgR" v-if="item.id ==='b'">
@@ -50,6 +58,13 @@
 							<view class="vedio" v-if="item.types === 2" @tap="playVoice(item.message)" :style="{width:item.message.time*8+'rpx'}">
 								<image src="../../static/submit/voiceInfp.png"></image>
 								<view class="">{{item.message.time}}'</view>
+							</view>
+							<view class="location" v-if="item.types === 3" @tap="openMap(item.message)">
+								<view class="name">{{item.message.name}}</view>
+								<view class="address">{{item.message.address}}</view>
+								<view >
+									<map class="map" :latitude="item.message.latitude" :longitude="item.message.longitude"></map>
+								</view>
 							</view>
 						</view>
 					</view>
@@ -137,7 +152,6 @@
 				this.scrollToView = ''
 				this.$nextTick(function(){
 					this.scrollToView = 'msg' + this.myMessage[this.myMessage.length-1].tip
-					console.log(this.myMessage.length-1)
 				})
 			},
 			sendMsg(res){
@@ -164,16 +178,22 @@
 				 this.isPlay = !this.isPlay
 				 innerAudioContext.src = msg.voice;
 				 innerAudioContext.autoplay = true;
-				 // if(this.isPlay){
-					//  InnerAudioContext.play()
-				 // }
-				 // else{
-					//  innerAudioContext.stop()
-				 // }
+				 if(this.isPlay){
+					 innerAudioContext.play()
+				 }
+				 else{
+					 innerAudioContext.stop()
+				 }
 				innerAudioContext.onPlay(() => {
 				  console.log('开始播放');
 				});
 				
+			},
+			openMap(map){
+				uni.openLocation({
+					latitude:map.latitude,
+					longitude:map.longitude
+				})
 			}
 		}
 	}
@@ -276,6 +296,24 @@
 								width: 45rpx;
 								height:45rpx;
 								margin: 0 15rpx;
+							}
+						}
+						.location{
+							width: 400rpx;
+							height: 350rpx;
+							background-color: #fff;
+							.name{
+								padding: 15rpx;
+								font-size: 30rpx;
+							}
+							.address{
+								font-size:20rpx;
+								padding: 15rpx;
+								color: $uni-text-color-grey;
+							}
+							.map{
+								width: 400rpx;
+								height: 300rpx;
 							}
 						}
 

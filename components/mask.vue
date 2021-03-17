@@ -3,7 +3,7 @@
 		<view class="title">
 			正在录音...
 		</view>
-		<view class="cancel" @touchend='touchend'>
+		<view class="cancel">
 			<image src="../static/submit/cancel.png" ></image>
 		</view>
 	</view>
@@ -17,9 +17,6 @@
 			};
 		},
 		methods:{
-			touchend(){
-				console.log(1111)
-			}
 		}
 	}
 </script>

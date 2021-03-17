@@ -4137,6 +4137,69 @@ var render = function() {
                                     ],
                                     1
                                   )
+                                : _vm._e(),
+                              _vm._$g("22-" + $30, "i")
+                                ? _c(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: _vm._$g("22-" + $30, "sc"),
+                                      attrs: { _i: "22-" + $30 },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.$handleViewEvent($event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "v-uni-view",
+                                        {
+                                          staticClass: _vm._$g(
+                                            "23-" + $30,
+                                            "sc"
+                                          ),
+                                          attrs: { _i: "23-" + $30 }
+                                        },
+                                        [_vm._v(_vm._$g("23-" + $30, "t0-0"))]
+                                      ),
+                                      _c(
+                                        "v-uni-view",
+                                        {
+                                          staticClass: _vm._$g(
+                                            "24-" + $30,
+                                            "sc"
+                                          ),
+                                          attrs: { _i: "24-" + $30 }
+                                        },
+                                        [_vm._v(_vm._$g("24-" + $30, "t0-0"))]
+                                      ),
+                                      _c(
+                                        "v-uni-view",
+                                        { attrs: { _i: "25-" + $30 } },
+                                        [
+                                          _c("v-uni-map", {
+                                            staticClass: _vm._$g(
+                                              "26-" + $30,
+                                              "sc"
+                                            ),
+                                            attrs: {
+                                              latitude: _vm._$g(
+                                                "26-" + $30,
+                                                "a-latitude"
+                                              ),
+                                              longitude: _vm._$g(
+                                                "26-" + $30,
+                                                "a-longitude"
+                                              ),
+                                              _i: "26-" + $30
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
                                 : _vm._e()
                             ],
                             1
@@ -4145,49 +4208,49 @@ var render = function() {
                         1
                       )
                     : _vm._e(),
-                  _vm._$g("22-" + $30, "i")
+                  _vm._$g("27-" + $30, "i")
                     ? _c(
                         "v-uni-view",
                         {
-                          staticClass: _vm._$g("22-" + $30, "sc"),
-                          attrs: { _i: "22-" + $30 }
+                          staticClass: _vm._$g("27-" + $30, "sc"),
+                          attrs: { _i: "27-" + $30 }
                         },
                         [
                           _c("v-uni-image", {
-                            staticClass: _vm._$g("23-" + $30, "sc"),
+                            staticClass: _vm._$g("28-" + $30, "sc"),
                             attrs: {
-                              src: _vm._$g("23-" + $30, "a-src"),
-                              _i: "23-" + $30
+                              src: _vm._$g("28-" + $30, "a-src"),
+                              _i: "28-" + $30
                             }
                           }),
                           _c(
                             "v-uni-view",
                             {
-                              staticClass: _vm._$g("24-" + $30, "sc"),
-                              attrs: { _i: "24-" + $30 }
+                              staticClass: _vm._$g("29-" + $30, "sc"),
+                              attrs: { _i: "29-" + $30 }
                             },
                             [
-                              _vm._$g("25-" + $30, "i")
+                              _vm._$g("30-" + $30, "i")
                                 ? _c(
                                     "v-uni-view",
                                     {
-                                      staticClass: _vm._$g("25-" + $30, "sc"),
-                                      attrs: { _i: "25-" + $30 }
+                                      staticClass: _vm._$g("30-" + $30, "sc"),
+                                      attrs: { _i: "30-" + $30 }
                                     },
-                                    [_vm._v(_vm._$g("25-" + $30, "t0-0"))]
+                                    [_vm._v(_vm._$g("30-" + $30, "t0-0"))]
                                   )
                                 : _vm._e(),
-                              _vm._$g("26-" + $30, "i")
+                              _vm._$g("31-" + $30, "i")
                                 ? _c(
                                     "v-uni-view",
-                                    { attrs: { _i: "26-" + $30 } },
+                                    { attrs: { _i: "31-" + $30 } },
                                     [
                                       _c("v-uni-image", {
-                                        staticClass: _vm._$g("27-" + $30, "sc"),
+                                        staticClass: _vm._$g("32-" + $30, "sc"),
                                         attrs: {
-                                          src: _vm._$g("27-" + $30, "a-src"),
+                                          src: _vm._$g("32-" + $30, "a-src"),
                                           mode: "widthFix",
-                                          _i: "27-" + $30
+                                          _i: "32-" + $30
                                         },
                                         on: {
                                           click: function($event) {
@@ -4199,13 +4262,13 @@ var render = function() {
                                     1
                                   )
                                 : _vm._e(),
-                              _vm._$g("28-" + $30, "i")
+                              _vm._$g("33-" + $30, "i")
                                 ? _c(
                                     "v-uni-view",
                                     {
-                                      staticClass: _vm._$g("28-" + $30, "sc"),
-                                      style: _vm._$g("28-" + $30, "s"),
-                                      attrs: { _i: "28-" + $30 },
+                                      staticClass: _vm._$g("33-" + $30, "sc"),
+                                      style: _vm._$g("33-" + $30, "s"),
+                                      attrs: { _i: "33-" + $30 },
                                       on: {
                                         click: function($event) {
                                           return _vm.$handleViewEvent($event)
@@ -4215,18 +4278,81 @@ var render = function() {
                                     [
                                       _c("v-uni-image", {
                                         attrs: {
-                                          src: _vm._$g("29-" + $30, "a-src"),
-                                          _i: "29-" + $30
+                                          src: _vm._$g("34-" + $30, "a-src"),
+                                          _i: "34-" + $30
                                         }
                                       }),
                                       _c(
                                         "v-uni-view",
-                                        { attrs: { _i: "30-" + $30 } },
+                                        { attrs: { _i: "35-" + $30 } },
                                         [
                                           _vm._v(
-                                            _vm._$g("30-" + $30, "t0-0") + "'"
+                                            _vm._$g("35-" + $30, "t0-0") + "'"
                                           )
                                         ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                : _vm._e(),
+                              _vm._$g("36-" + $30, "i")
+                                ? _c(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: _vm._$g("36-" + $30, "sc"),
+                                      attrs: { _i: "36-" + $30 },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.$handleViewEvent($event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "v-uni-view",
+                                        {
+                                          staticClass: _vm._$g(
+                                            "37-" + $30,
+                                            "sc"
+                                          ),
+                                          attrs: { _i: "37-" + $30 }
+                                        },
+                                        [_vm._v(_vm._$g("37-" + $30, "t0-0"))]
+                                      ),
+                                      _c(
+                                        "v-uni-view",
+                                        {
+                                          staticClass: _vm._$g(
+                                            "38-" + $30,
+                                            "sc"
+                                          ),
+                                          attrs: { _i: "38-" + $30 }
+                                        },
+                                        [_vm._v(_vm._$g("38-" + $30, "t0-0"))]
+                                      ),
+                                      _c(
+                                        "v-uni-view",
+                                        { attrs: { _i: "39-" + $30 } },
+                                        [
+                                          _c("v-uni-map", {
+                                            staticClass: _vm._$g(
+                                              "40-" + $30,
+                                              "sc"
+                                            ),
+                                            attrs: {
+                                              latitude: _vm._$g(
+                                                "40-" + $30,
+                                                "a-latitude"
+                                              ),
+                                              longitude: _vm._$g(
+                                                "40-" + $30,
+                                                "a-longitude"
+                                              ),
+                                              _i: "40-" + $30
+                                            }
+                                          })
+                                        ],
+                                        1
                                       )
                                     ],
                                     1
@@ -4246,18 +4372,18 @@ var render = function() {
             1
           ),
           _c("v-uni-view", {
-            staticClass: _vm._$g(31, "sc"),
-            attrs: { _i: 31 }
+            staticClass: _vm._$g(41, "sc"),
+            attrs: { _i: 41 }
           }),
           _c("v-uni-view", {
-            staticClass: _vm._$g(32, "sc"),
-            attrs: { _i: 32 }
+            staticClass: _vm._$g(42, "sc"),
+            attrs: { _i: 42 }
           })
         ],
         1
       ),
       _c("submit", {
-        attrs: { _i: 33 },
+        attrs: { _i: 43 },
         on: {
           sendMsg: function($event) {
             return _vm.$handleViewEvent($event)
@@ -4965,15 +5091,7 @@ var render = function() {
       ]),
       _c(
         "v-uni-view",
-        {
-          staticClass: _vm._$g(2, "sc"),
-          attrs: { _i: 2 },
-          on: {
-            touchend: function($event) {
-              return _vm.$handleViewEvent($event)
-            }
-          }
-        },
+        { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
         [_c("v-uni-image", { attrs: { src: _vm._$g(3, "a-src"), _i: 3 } })],
         1
       )
@@ -5173,7 +5291,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.status_bar {\r\n  height: var(--status-bar-height);\r\n  width: 100%;\n}\n.topBar {\r\n  width: 100%;\r\n  height: 98rpx;\r\n  z-index: 9999;\r\n  padding-top: var(--status-bar-height);\r\n  margin-bottom: var(--status-bar-height);\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  background-color: rgba(255, 255, 255, 0.96);\r\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.topBar .topBarleft {\r\n  padding-top: 20rpx;\r\n  margin-left: 25rpx;\n}\n.topBar .topBarleft uni-image {\r\n  width: 50rpx;\r\n  height: 50rpx;\r\n  border-radius: 16rpx;\n}\n.topBar .topBarCenter {\r\n  padding-top: 20rpx;\n}\n.topBar .topBarCenter .img {\r\n  margin-top: 10rpx;\r\n  width: 48rpx;\r\n  height: 42rpx;\n}\n.topBar .topBarRight {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  line-height: 98rpx;\r\n  margin-right: 12rpx;\r\n  -webkit-box-pack: end;\r\n  -webkit-justify-content: flex-end;\r\n          justify-content: flex-end;\n}\n.topBar .topBarRight uni-image {\r\n  width: 42rpx;\r\n  height: 42rpx;\r\n  margin-right: 10rpx;\r\n  margin-top: 20rpx;\n}\n.topBar .topBarRight uni-text {\r\n  font-size: 32rpx;\r\n  color: #272833;\n}\nbody {\r\n  height: 100%;\n}\n.content {\r\n  position: fixed;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(244, 244, 244, 0.96);\n}\n.topBar {\r\n  position: fixed;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  background-color: rgba(244, 244, 244, 0.96);\n}\n.topBar .topBarleft {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\n}\n.topBar .topBarCenter {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  text-align: center;\r\n  font-size: 38rpx;\n}\n.topBar .topBarRight {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\n}\n.topBar .topBarRight uni-image {\r\n  width: 55rpx;\r\n  height: 55rpx;\r\n  border-radius: 16rpx;\n}\n.chat {\r\n  height: 100%;\r\n  margin-top: 100rpx;\n}\n.chat .chatMain {\r\n  padding-left: 32rpx;\r\n  padding-right: 32rpx;\r\n  padding-top: 20rpx;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\n}\n.chat .chatMain .chatItem .chatTime {\r\n  font-size: 29rpx;\r\n  color: rgba(39, 40, 50, 0.3);\r\n  line-height: 34rpx;\r\n  padding: 20rpx 0;\r\n  text-align: center;\n}\n.chat .chatMain .chatItem .chatMsg {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  padding: 20rpx 0;\n}\n.chat .chatMain .chatItem .chatMsg .headPic {\r\n  width: 105rpx;\r\n  height: 105rpx;\r\n  border-radius: 25rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer {\r\n  border-radius: 18rpx;\r\n  max-width: 480rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .message {\r\n  border-radius: 18rpx;\r\n  padding: 16rpx 24rpx;\r\n  font-size: 32rpx;\r\n  color: #272832;\r\n  line-height: 44rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .imgMsgs {\r\n  padding: 16rpx 24rpx;\r\n  max-width: 400rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .vedio {\r\n  min-width: 100rpx;\r\n  max-width: 480rpx;\r\n  height: 80rpx;\r\n  border-radius: 18rpx;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .vedio uni-image {\r\n  width: 45rpx;\r\n  height: 45rpx;\r\n  margin: 0 15rpx;\n}\n.chat .chatMain .chatItem .chatMsgL .chatContainer {\r\n  margin-left: 16rpx;\n}\n.chat .chatMain .chatItem .chatMsgL .chatContainer .message {\r\n  background-color: white;\n}\n.chat .chatMain .chatItem .chatMsgL .chatContainer .vedio {\r\n  background-color: white;\n}\n.chat .chatMain .chatItem .chatMsgR {\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: reverse;\r\n  -webkit-flex-direction: row-reverse;\r\n          flex-direction: row-reverse;\n}\n.chat .chatMain .chatItem .chatMsgR .chatContainer {\r\n  margin-right: 16rpx;\n}\n.chat .chatMain .chatItem .chatMsgR .chatContainer .message {\r\n  background-color: #55aaff;\n}\n.chat .chatMain .chatItem .chatMsgR .chatContainer .vedio {\r\n  margin-right: 16rpx;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: reverse;\r\n  -webkit-flex-direction: row-reverse;\r\n          flex-direction: row-reverse;\r\n  background-color: #55aaff;\n}\n.chat .chatMain .chatItem .chatMsgR .chatContainer .vedio uni-image {\r\n  -webkit-transform: rotate(180deg);\r\n          transform: rotate(180deg);\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.status_bar {\r\n  height: var(--status-bar-height);\r\n  width: 100%;\n}\n.topBar {\r\n  width: 100%;\r\n  height: 98rpx;\r\n  z-index: 9999;\r\n  padding-top: var(--status-bar-height);\r\n  margin-bottom: var(--status-bar-height);\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  background-color: rgba(255, 255, 255, 0.96);\r\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.topBar .topBarleft {\r\n  padding-top: 20rpx;\r\n  margin-left: 25rpx;\n}\n.topBar .topBarleft uni-image {\r\n  width: 50rpx;\r\n  height: 50rpx;\r\n  border-radius: 16rpx;\n}\n.topBar .topBarCenter {\r\n  padding-top: 20rpx;\n}\n.topBar .topBarCenter .img {\r\n  margin-top: 10rpx;\r\n  width: 48rpx;\r\n  height: 42rpx;\n}\n.topBar .topBarRight {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  line-height: 98rpx;\r\n  margin-right: 12rpx;\r\n  -webkit-box-pack: end;\r\n  -webkit-justify-content: flex-end;\r\n          justify-content: flex-end;\n}\n.topBar .topBarRight uni-image {\r\n  width: 42rpx;\r\n  height: 42rpx;\r\n  margin-right: 10rpx;\r\n  margin-top: 20rpx;\n}\n.topBar .topBarRight uni-text {\r\n  font-size: 32rpx;\r\n  color: #272833;\n}\nbody {\r\n  height: 100%;\n}\n.content {\r\n  position: fixed;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(244, 244, 244, 0.96);\n}\n.topBar {\r\n  position: fixed;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  background-color: rgba(244, 244, 244, 0.96);\n}\n.topBar .topBarleft {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\n}\n.topBar .topBarCenter {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  text-align: center;\r\n  font-size: 38rpx;\n}\n.topBar .topBarRight {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\n}\n.topBar .topBarRight uni-image {\r\n  width: 55rpx;\r\n  height: 55rpx;\r\n  border-radius: 16rpx;\n}\n.chat {\r\n  height: 100%;\r\n  margin-top: 100rpx;\n}\n.chat .chatMain {\r\n  padding-left: 32rpx;\r\n  padding-right: 32rpx;\r\n  padding-top: 20rpx;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\n}\n.chat .chatMain .chatItem .chatTime {\r\n  font-size: 29rpx;\r\n  color: rgba(39, 40, 50, 0.3);\r\n  line-height: 34rpx;\r\n  padding: 20rpx 0;\r\n  text-align: center;\n}\n.chat .chatMain .chatItem .chatMsg {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  padding: 20rpx 0;\n}\n.chat .chatMain .chatItem .chatMsg .headPic {\r\n  width: 105rpx;\r\n  height: 105rpx;\r\n  border-radius: 25rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer {\r\n  border-radius: 18rpx;\r\n  max-width: 480rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .message {\r\n  border-radius: 18rpx;\r\n  padding: 16rpx 24rpx;\r\n  font-size: 32rpx;\r\n  color: #272832;\r\n  line-height: 44rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .imgMsgs {\r\n  padding: 16rpx 24rpx;\r\n  max-width: 400rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .vedio {\r\n  min-width: 100rpx;\r\n  max-width: 480rpx;\r\n  height: 80rpx;\r\n  border-radius: 18rpx;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .vedio uni-image {\r\n  width: 45rpx;\r\n  height: 45rpx;\r\n  margin: 0 15rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .location {\r\n  width: 400rpx;\r\n  height: 350rpx;\r\n  background-color: #fff;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .location .name {\r\n  padding: 15rpx;\r\n  font-size: 30rpx;\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .location .address {\r\n  font-size: 20rpx;\r\n  padding: 15rpx;\r\n  color: rgba(39, 40, 50, 0.6);\n}\n.chat .chatMain .chatItem .chatMsg .chatContainer .location .map {\r\n  width: 400rpx;\r\n  height: 300rpx;\n}\n.chat .chatMain .chatItem .chatMsgL .chatContainer {\r\n  margin-left: 16rpx;\n}\n.chat .chatMain .chatItem .chatMsgL .chatContainer .message {\r\n  background-color: white;\n}\n.chat .chatMain .chatItem .chatMsgL .chatContainer .vedio {\r\n  background-color: white;\n}\n.chat .chatMain .chatItem .chatMsgR {\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: reverse;\r\n  -webkit-flex-direction: row-reverse;\r\n          flex-direction: row-reverse;\n}\n.chat .chatMain .chatItem .chatMsgR .chatContainer {\r\n  margin-right: 16rpx;\n}\n.chat .chatMain .chatItem .chatMsgR .chatContainer .message {\r\n  background-color: #55aaff;\n}\n.chat .chatMain .chatItem .chatMsgR .chatContainer .vedio {\r\n  margin-right: 16rpx;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: reverse;\r\n  -webkit-flex-direction: row-reverse;\r\n          flex-direction: row-reverse;\r\n  background-color: #55aaff;\n}\n.chat .chatMain .chatItem .chatMsgR .chatContainer .vedio uni-image {\r\n  -webkit-transform: rotate(180deg);\r\n          transform: rotate(180deg);\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

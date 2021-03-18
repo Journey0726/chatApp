@@ -16,7 +16,10 @@
 				<image src="../../static/topbar/user.png" mode=""></image>
 			</view>
 		</view>
-		<scroll-view class="chat" scroll-y="true" scroll-with-animation="true" :scroll-into-view='scrollToView'>
+		<scroll-view @scrolltoupper='getNextPage' class="chat" scroll-y="true" scroll-with-animation="true" :scroll-into-view='scrollToView'>
+			<view class="loading" v-if="isloading">
+				<image :animation="loadingAnimationData" src="../../static/submit/loading.png" mode=""></image>
+			</view>
 			<view class="chatMain" :style="{'padding-bottom':bottomHeight+'rpx'}">
 				<view class="chatItem" v-for="(item,index) in myMessage" :key="index" :id ="'msg' + item.tip">
 					<view class="chatTime">{{item.time|showDate}}</view>
@@ -102,7 +105,10 @@
 				picList:[],
 				scrollToView:'',
 				bottomHeight:200,
-				isPlay:false
+				isPlay:false,
+				loadingAnimationData:{},
+				interval:"",
+				isloading:false
 			};
 		},
 		components:{
@@ -124,7 +130,8 @@
 					if(item.types===1) this.picList.push(item.message)
 				})
 				this.goBottom()
-
+				clearInterval(this.interval)
+				this.isloading = false
 			},
 			navBack() {
 				uni.navigateBack({
@@ -194,6 +201,29 @@
 					latitude:map.latitude,
 					longitude:map.longitude
 				})
+			},
+			getNextPage(){
+				this.isloading = true
+				var animation = uni.createAnimation({
+				      duration: 1000,
+				        timingFunction: 'step-start',
+				    })
+				
+				    this.animation = animation
+					let i=1
+					this.interval = setInterval(function(){
+						animation.rotate(30*i).step();
+						i++;
+						this.loadingAnimationData = animation.export();
+					}.bind(this),100)
+					// if(i>4){
+					// 	this.message()		
+					// 	this.isloading = false
+					// }
+					setTimeout(()=>{
+						this.isloading = false
+					},4000)
+				    
 			}
 		}
 	}
@@ -241,6 +271,13 @@
 	.chat {
 		height: 100%;
 		margin-top: 100rpx;
+		.loading{
+			text-align: center;
+			image{
+				width: 45rpx;
+				height: 45rpx;
+			}
+		}
 		.chatMain {
 			padding-left: $uni-spacing-col-base;
 			padding-right: $uni-spacing-col-base;
